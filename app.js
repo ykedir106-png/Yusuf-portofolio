@@ -1,14 +1,8 @@
-// ==========================================
-// YUSUF KEDIR | PORTFOLIO
-// Main JavaScript
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ------------------------------------------
-  // MOBILE MENU
-  // ------------------------------------------
-
+  // ================================
+  // MENU
+  // ================================
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
 
@@ -24,13 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-  // ------------------------------------------
-  // DARK / LIGHT MODE
-  // ------------------------------------------
-
+  // ================================
+  // DARK MODE
+  // ================================
   const themeToggle = document.getElementById("themeToggle");
-
   const savedTheme = localStorage.getItem("portfolio-theme");
 
   if (savedTheme === "dark") {
@@ -53,43 +44,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-
       document.body.classList.toggle("dark");
-
-      const isDark =
-        document.body.classList.contains("dark");
 
       localStorage.setItem(
         "portfolio-theme",
-        isDark ? "dark" : "light"
+        document.body.classList.contains("dark")
+          ? "dark"
+          : "light"
       );
 
       updateThemeIcon();
     });
   }
 
-
-  // ------------------------------------------
-  // CURRENT YEAR
-  // ------------------------------------------
-
+  // ================================
+  // YEAR
+  // ================================
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
 
-
-  // ------------------------------------------
+  // ================================
   // CONTACT FORM
-  // ------------------------------------------
-
+  // ================================
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
-
-    contactForm.addEventListener("submit", (event) => {
-
+    contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const name =
@@ -106,25 +89,46 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showToast(
-        "Thank you! Your message has been received.",
-        "success"
-      );
+      try {
+        const { error } = await window.supabaseClient
+          .from("messages")
+          .insert([
+            {
+              name: name,
+              email: email,
+              message: message
+            }
+          ]);
 
-      contactForm.reset();
+        if (error) throw error;
+
+        showToast(
+          "Your message has been sent successfully! ✅",
+          "success"
+        );
+
+        contactForm.reset();
+
+      } catch (error) {
+        console.error("Message error:", error);
+
+        showToast(
+          "Failed to send message.",
+          "error"
+        );
+      }
     });
   }
 
-
-  // ------------------------------------------
+  // ================================
   // ADMIN LOGIN
-  // ------------------------------------------
-
-  const adminForm = document.getElementById("adminLoginForm");
+  // ================================
+  const adminForm =
+    document.getElementById("adminLoginForm");
 
   if (adminForm) {
 
-    adminForm.addEventListener("submit", (event) => {
+    adminForm.addEventListener("submit", async (event) => {
 
       event.preventDefault();
 
@@ -142,52 +146,122 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Supabase authentication will be connected
-      // in the next step.
+      try {
 
-      showToast(
-        "Supabase authentication will be connected next.",
-        "info"
-      );
+        showToast("Signing in...", "info");
+
+        // Supabase Authentication
+        const { data, error } =
+          await window.supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+
+        if (error) {
+          throw error;
+        }
+
+        const user = data.user;
+
+        if (!user) {
+          throw new Error("User not found.");
+        }
+
+        // Check ADMIN role
+        const { data: profile, error: profileError } =
+          await window.supabaseClient
+            .from("profiles")
+            .select("id, full_name, role")
+            .eq("id", user.id)
+            .single();
+
+        if (profileError) {
+          throw profileError;
+        }
+
+        if (!profile || profile.role !== "admin") {
+
+          await window.supabaseClient.auth.signOut();
+
+          showToast(
+            "This account is not an admin.",
+            "error"
+          );
+
+          return;
+        }
+
+        // Successful admin login
+        showToast(
+          "Admin login successful! 🎉",
+          "success"
+        );
+
+        // Hide login section
+        const adminSection =
+          document.getElementById("admin");
+
+        if (adminSection) {
+          adminSection.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+
+        // Store admin state
+        sessionStorage.setItem(
+          "portfolio-admin",
+          "true"
+        );
+
+        console.log(
+          "✅ ADMIN LOGIN SUCCESS:",
+          profile.full_name
+        );
+
+      } catch (error) {
+
+        console.error("Admin login error:", error);
+
+        showToast(
+          error.message || "Login failed.",
+          "error"
+        );
+      }
     });
   }
 
-
-  // ------------------------------------------
+  // ================================
   // SMOOTH SCROLL
-  // ------------------------------------------
+  // ================================
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(event) {
 
-    anchor.addEventListener("click", function (event) {
+        const targetId =
+          this.getAttribute("href");
 
-      const targetId =
-        this.getAttribute("href");
+        if (!targetId || targetId === "#") return;
 
-      if (!targetId || targetId === "#") {
-        return;
-      }
+        const target =
+          document.querySelector(targetId);
 
-      const target =
-        document.querySelector(targetId);
+        if (target) {
 
-      if (target) {
-        event.preventDefault();
+          event.preventDefault();
 
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
     });
 
-  });
-
-
-  // ------------------------------------------
-  // PWA SERVICE WORKER
-  // ------------------------------------------
-
+  // ================================
+  // SERVICE WORKER
+  // ================================
   if ("serviceWorker" in navigator) {
 
     window.addEventListener("load", () => {
@@ -195,32 +269,32 @@ document.addEventListener("DOMContentLoaded", () => {
       navigator.serviceWorker
         .register("./sw.js")
         .then(() => {
-          console.log("Service Worker registered.");
+          console.log(
+            "✅ Service Worker registered."
+          );
         })
         .catch(error => {
-          console.log(
-            "Service Worker registration failed:",
+          console.error(
+            "Service Worker error:",
             error
           );
         });
 
     });
-
   }
 
+  // ================================
+  // TOAST
+  // ================================
+  window.showToast = function (
+    message,
+    type = "info"
+  ) {
 
-  // ------------------------------------------
-  // TOAST FUNCTION
-  // ------------------------------------------
-
-  window.showToast = function(message, type = "info") {
-
-    let toast =
+    const toast =
       document.getElementById("toast");
 
-    if (!toast) {
-      return;
-    }
+    if (!toast) return;
 
     toast.textContent = message;
 
@@ -243,11 +317,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3500);
   };
 
-
-  // ------------------------------------------
-  // ACTIVE NAVIGATION
-  // ------------------------------------------
-
+  // ================================
+  // ACTIVE NAV
+  // ================================
   const sections =
     document.querySelectorAll("section[id]");
 
@@ -266,7 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
         section.offsetTop - 150;
 
       if (window.scrollY >= sectionTop) {
-        currentSection = section.getAttribute("id");
+        currentSection =
+          section.getAttribute("id");
       }
 
     });
@@ -283,7 +356,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     });
-
   }
 
   window.addEventListener(
@@ -293,53 +365,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateActiveNav();
 
-
-  // ------------------------------------------
-  // SCROLL REVEAL
-  // ------------------------------------------
-
-  const revealElements =
-    document.querySelectorAll(
-      ".card, .skill-card, .project-card, .blog-card"
-    );
-
-  if ("IntersectionObserver" in window) {
-
-    const observer =
-      new IntersectionObserver(
-        entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.15
-        }
-      );
-
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
-
-  }
-
-
   console.log(
-    "Yusuf Kedir Portfolio loaded successfully."
+    "🚀 Yusuf Kedir Portfolio loaded."
   );
 
 });
