@@ -10,7 +10,12 @@
 
   <meta
     name="description"
-    content="Yusuf Kedir Dadi - Web Developer, Programmer and Technology Enthusiast"
+    content="Yusuf Kedir Dadi — Professional Web Developer, Programmer and PWA Developer."
+  >
+
+  <meta
+    name="author"
+    content="Yusuf Kedir"
   >
 
   <meta
@@ -19,8 +24,13 @@
   >
 
   <meta
-    name="author"
-    content="Yusuf Kedir Dadi"
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
   >
 
   <title>Yusuf Kedir Dadi | Portfolio</title>
@@ -32,13 +42,13 @@
     href="./icons/icon-192.png"
   >
 
-  <!-- PWA Manifest -->
+  <!-- PWA -->
   <link
     rel="manifest"
     href="./manifest.json"
   >
 
-  <!-- Main CSS -->
+  <!-- CSS -->
   <link
     rel="stylesheet"
     href="./style.css"
@@ -47,9 +57,9 @@
 
 <body>
 
-  <!-- ==========================================
-       NAVIGATION
-  =========================================== -->
+  <!-- ================================
+       NAVBAR
+  ================================= -->
 
   <header class="navbar">
 
@@ -65,7 +75,8 @@
       <button
         id="menuBtn"
         class="menu-btn"
-        aria-label="Open Menu"
+        aria-label="Open menu"
+        type="button"
       >
         ☰
       </button>
@@ -99,6 +110,7 @@
         id="themeToggle"
         class="theme-toggle"
         aria-label="Dark Mode"
+        type="button"
       >
         🌙
       </button>
@@ -108,35 +120,36 @@
   </header>
 
 
-  <!-- ==========================================
-       HERO / HOME
-  =========================================== -->
-
   <main>
+
+    <!-- ================================
+         HOME
+    ================================= -->
 
     <section
       id="home"
-      class="hero"
+      class="hero section"
     >
 
-      <div class="container hero-content">
+      <div class="container hero-grid">
 
-        <div class="hero-text">
+        <div class="hero-content">
 
-          <p class="hero-small">
-            👋 Hello, I'm
+          <p class="eyebrow">
+            Welcome to my portfolio
           </p>
 
           <h1>
-            Yusuf Kedir Dadi
+            Hi, I'm
+            <span>Yusuf Kedir</span>
           </h1>
 
           <h2>
-            Web Developer & Programmer
+            Web Developer • Programmer • PWA Developer
           </h2>
 
-          <p>
-            I build modern, responsive and user-friendly
+          <p class="hero-text">
+            I build modern, responsive and professional
             websites and web applications using modern
             technologies.
           </p>
@@ -145,14 +158,14 @@
 
             <a
               href="#projects"
-              class="btn primary-btn"
+              class="btn btn-primary"
             >
               View My Projects
             </a>
 
             <a
               href="#contact"
-              class="btn secondary-btn"
+              class="btn btn-outline"
             >
               Contact Me
             </a>
@@ -164,8 +177,7 @@
             <a
               href="https://github.com/"
               target="_blank"
-              rel="noopener"
-              aria-label="GitHub"
+              rel="noopener noreferrer"
             >
               GitHub
             </a>
@@ -173,17 +185,15 @@
             <a
               href="https://www.linkedin.com/"
               target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn"
+              rel="noopener noreferrer"
             >
               LinkedIn
             </a>
 
             <a
-              href="https://wa.me/"
+              href="https://wa.me/251925702779"
               target="_blank"
-              rel="noopener"
-              aria-label="WhatsApp"
+              rel="noopener noreferrer"
             >
               WhatsApp
             </a>
@@ -197,9 +207,11 @@
 
           <div class="profile-circle">
 
-            <div class="profile-placeholder">
-              YKD
-            </div>
+            <img
+              src="./icons/icon-512.png"
+              alt="Yusuf Kedir profile"
+              loading="eager"
+            >
 
           </div>
 
@@ -210,9 +222,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          ABOUT
-    =========================================== -->
+    ================================= -->
 
     <section
       id="about"
@@ -221,115 +233,60 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>Get To Know Me</p>
+          <p class="eyebrow">
+            About Me
+          </p>
 
           <h2>
-            About Me
+            Who I Am
           </h2>
 
         </div>
 
 
-        <div class="about-content">
+        <div class="about-grid">
 
-          <div class="about-text">
+          <div class="card">
 
             <h3>
-              I'm Yusuf Kedir Dadi
+              👨‍💻 Professional Developer
             </h3>
 
             <p>
-              I am a Web Developer, Programmer and
-              Technology Enthusiast interested in creating
-              modern digital solutions.
-            </p>
-
-            <p>
-              I enjoy learning programming, developing
-              websites and turning ideas into useful
-              digital products.
-            </p>
-
-            <p>
-              My goal is to continuously improve my skills
-              and build professional applications that
-              provide real value to people and businesses.
+              I am Yusuf Kedir, a passionate developer
+              interested in creating modern websites,
+              web applications and Progressive Web Apps.
             </p>
 
           </div>
 
 
-          <div class="about-grid">
+          <div class="card">
 
-            <div class="card">
+            <h3>
+              🚀 My Goal
+            </h3>
 
-              <div class="card-icon">
-                🎯
-              </div>
+            <p>
+              My goal is to continue learning technology
+              and create useful digital solutions for
+              people, organizations and businesses.
+            </p>
 
-              <h3>
-                Goal
-              </h3>
-
-              <p>
-                Build useful and professional digital
-                solutions.
-              </p>
-
-            </div>
+          </div>
 
 
-            <div class="card">
+          <div class="card">
 
-              <div class="card-icon">
-                💻
-              </div>
+            <h3>
+              🌍 Location
+            </h3>
 
-              <h3>
-                Development
-              </h3>
-
-              <p>
-                Modern websites and web applications.
-              </p>
-
-            </div>
-
-
-            <div class="card">
-
-              <div class="card-icon">
-                📚
-              </div>
-
-              <h3>
-                Learning
-              </h3>
-
-              <p>
-                Continuously learning new technologies.
-              </p>
-
-            </div>
-
-
-            <div class="card">
-
-              <div class="card-icon">
-                🚀
-              </div>
-
-              <h3>
-                Future
-              </h3>
-
-              <p>
-                Creating innovative technology projects.
-              </p>
-
-            </div>
+            <p>
+              Ethiopia
+            </p>
 
           </div>
 
@@ -340,9 +297,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          SKILLS
-    =========================================== -->
+    ================================= -->
 
     <section
       id="skills"
@@ -351,14 +308,14 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            My Technical Skills
+          <p class="eyebrow">
+            My Skills
           </p>
 
           <h2>
-            Skills
+            Technologies I Use
           </h2>
 
         </div>
@@ -367,206 +324,53 @@
         <div class="skills-grid">
 
           <div class="skill-card">
-
-            <span class="skill-icon">
-              🌐
-            </span>
-
-            <h3>
-              HTML
-            </h3>
-
-            <p>
-              Semantic and accessible web structure.
-            </p>
-
+            <span>HTML</span>
+            <strong>HTML5</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              🎨
-            </span>
-
-            <h3>
-              CSS
-            </h3>
-
-            <p>
-              Responsive and modern interface design.
-            </p>
-
+            <span>CSS</span>
+            <strong>CSS3</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              ⚡
-            </span>
-
-            <h3>
-              JavaScript
-            </h3>
-
-            <p>
-              Interactive and dynamic web applications.
-            </p>
-
+            <span>JS</span>
+            <strong>JavaScript</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              🐍
-            </span>
-
-            <h3>
-              Python
-            </h3>
-
-            <p>
-              Programming, automation and applications.
-            </p>
-
+            <span>PY</span>
+            <strong>Python</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              ⚙️
-            </span>
-
-            <h3>
-              C++
-            </h3>
-
-            <p>
-              Programming and problem solving.
-            </p>
-
+            <span>C++</span>
+            <strong>C++</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              ☕
-            </span>
-
-            <h3>
-              Java
-            </h3>
-
-            <p>
-              Object-oriented programming.
-            </p>
-
+            <span>JAVA</span>
+            <strong>Java</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              📱
-            </span>
-
-            <h3>
-              PWA
-            </h3>
-
-            <p>
-              Installable and responsive web applications.
-            </p>
-
+            <span>DB</span>
+            <strong>Database</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              🗄️
-            </span>
-
-            <h3>
-              Database
-            </h3>
-
-            <p>
-              Working with modern database systems.
-            </p>
-
+            <span>SB</span>
+            <strong>Supabase</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              🐙
-            </span>
-
-            <h3>
-              GitHub
-            </h3>
-
-            <p>
-              Version control and project deployment.
-            </p>
-
+            <span>PWA</span>
+            <strong>Progressive Web Apps</strong>
           </div>
 
-
           <div class="skill-card">
-
-            <span class="skill-icon">
-              ▲
-            </span>
-
-            <h3>
-              Vercel
-            </h3>
-
-            <p>
-              Fast and modern web deployment.
-            </p>
-
-          </div>
-
-
-          <div class="skill-card">
-
-            <span class="skill-icon">
-              📐
-            </span>
-
-            <h3>
-              Responsive Design
-            </h3>
-
-            <p>
-              Websites optimized for all screen sizes.
-            </p>
-
-          </div>
-
-
-          <div class="skill-card">
-
-            <span class="skill-icon">
-              🔐
-            </span>
-
-            <h3>
-              Supabase
-            </h3>
-
-            <p>
-              Authentication and cloud database.
-            </p>
-
+            <span>GH</span>
+            <strong>GitHub</strong>
           </div>
 
         </div>
@@ -576,9 +380,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          PROJECTS
-    =========================================== -->
+    ================================= -->
 
     <section
       id="projects"
@@ -587,195 +391,148 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            What I Have Built
+          <p class="eyebrow">
+            Portfolio
           </p>
 
           <h2>
             My Projects
           </h2>
 
+          <p>
+            Some of my web and application projects.
+          </p>
+
         </div>
 
 
-        <div class="projects-grid">
+        <div
+          id="projectsGrid"
+          class="projects-grid"
+        >
 
+          <!-- Project 1 -->
 
-          <!-- Online Shopping -->
+          <article class="project-card card">
 
-          <article class="project-card">
-
-            <div class="project-image">
+            <div class="project-icon">
               🛒
             </div>
 
-            <div class="project-content">
+            <h3>
+              Online Shopping
+            </h3>
 
-              <span class="project-tag">
-                E-Commerce
-              </span>
+            <p>
+              A modern online shopping web application
+              with a responsive user interface.
+            </p>
 
-              <h3>
-                Online Shopping
-              </h3>
-
-              <p>
-                A modern online shopping platform for
-                clothing, electronics and other products.
-              </p>
-
-              <div class="project-tech">
-
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-
-              </div>
-
-              <a
-                href="https://online-shopping-gilt-rho.vercel.app/"
-                target="_blank"
-                rel="noopener"
-                class="project-link"
-              >
-                View Project →
-              </a>
-
+            <div class="project-tech">
+              HTML • CSS • JavaScript
             </div>
+
+            <a
+              href="https://online-shopping-gilt-rho.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              View Project
+            </a>
 
           </article>
 
 
-          <!-- Calculator -->
+          <!-- Project 2 -->
 
-          <article class="project-card">
+          <article class="project-card card">
 
-            <div class="project-image">
+            <div class="project-icon">
               🧮
             </div>
 
-            <div class="project-content">
+            <h3>
+              Scientific Calculator
+            </h3>
 
-              <span class="project-tag">
-                Web App
-              </span>
+            <p>
+              A responsive scientific calculator with
+              advanced mathematical functions and dark mode.
+            </p>
 
-              <h3>
-                Scientific Calculator
-              </h3>
-
-              <p>
-                A responsive scientific calculator with
-                modern interface and useful mathematical
-                functions.
-              </p>
-
-              <div class="project-tech">
-
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>PWA</span>
-
-              </div>
-
-              <a
-                href="https://calculator-delta-brown-91.vercel.app/"
-                target="_blank"
-                rel="noopener"
-                class="project-link"
-              >
-                View Project →
-              </a>
-
+            <div class="project-tech">
+              HTML • CSS • JavaScript • PWA
             </div>
+
+            <a
+              href="https://calculator-delta-brown-91.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              View Project
+            </a>
 
           </article>
 
 
-          <!-- Masjida Tawbaa -->
+          <!-- Project 3 -->
 
-          <article class="project-card">
+          <article class="project-card card">
 
-            <div class="project-image">
+            <div class="project-icon">
               🕌
             </div>
 
-            <div class="project-content">
+            <h3>
+              Masjida Tawbaa
+            </h3>
 
-              <span class="project-tag">
-                Coming Soon
-              </span>
+            <p>
+              A community and student organization
+              website project.
+            </p>
 
-              <h3>
-                Masjida Tawbaa
-              </h3>
-
-              <p>
-                Website for Jama'aa Waligalaa Barattoota
-                Masjiida Towbaa.
-              </p>
-
-              <div class="project-tech">
-
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Supabase</span>
-
-              </div>
-
-              <span class="project-link">
-                Coming Soon
-              </span>
-
+            <div class="project-tech">
+              HTML • CSS • JavaScript • Supabase
             </div>
+
+            <span class="project-status">
+              Coming Soon
+            </span>
 
           </article>
 
 
-          <!-- FEYA -->
+          <!-- Project 4 -->
 
-          <article class="project-card">
+          <article class="project-card card">
 
-            <div class="project-image">
+            <div class="project-icon">
               🚗
             </div>
 
-            <div class="project-content">
+            <h3>
+              FEYA Import & Trading
+            </h3>
 
-              <span class="project-tag">
-                Business
-              </span>
+            <p>
+              A professional business website for
+              import and trading services.
+            </p>
 
-              <h3>
-                FEYA Import & Trading
-              </h3>
-
-              <p>
-                Import and trading business website for
-                cars and construction materials.
-              </p>
-
-              <div class="project-tech">
-
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>PWA</span>
-
-              </div>
-
-              <span class="project-link">
-                Coming Soon
-              </span>
-
+            <div class="project-tech">
+              Web • PWA • Business
             </div>
 
-          </article>
+            <span class="project-status">
+              Coming Soon
+            </span>
 
+          </article>
 
         </div>
 
@@ -784,9 +541,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          BLOG
-    =========================================== -->
+    ================================= -->
 
     <section
       id="blog"
@@ -795,95 +552,91 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            Articles & Ideas
+          <p class="eyebrow">
+            Blog
           </p>
 
           <h2>
-            Blog
+            Latest Articles
           </h2>
+
+          <p>
+            Articles and ideas about programming,
+            technology and development.
+          </p>
 
         </div>
 
 
-        <div class="blog-grid">
+        <div
+          id="blogGrid"
+          class="blog-grid"
+        >
 
-          <article class="blog-card">
+          <article class="blog-card card">
 
             <div class="blog-icon">
               💻
             </div>
 
-            <div>
+            <h3>
+              My Journey in Web Development
+            </h3>
 
-              <span>
-                Web Development
-              </span>
+            <p>
+              Learning web development starts with
+              practice, patience and continuous improvement.
+            </p>
 
-              <h3>
-                My Journey Into Web Development
-              </h3>
-
-              <p>
-                Learning how websites are created and
-                continuously improving my programming skills.
-              </p>
-
-            </div>
+            <span>
+              Web Development
+            </span>
 
           </article>
 
 
-          <article class="blog-card">
+          <article class="blog-card card">
 
             <div class="blog-icon">
               🚀
             </div>
 
-            <div>
+            <h3>
+              Building Progressive Web Apps
+            </h3>
 
-              <span>
-                Technology
-              </span>
+            <p>
+              PWAs provide a powerful way to build
+              fast and installable web experiences.
+            </p>
 
-              <h3>
-                Building Modern Web Applications
-              </h3>
-
-              <p>
-                Exploring modern technologies and creating
-                useful applications for real-world problems.
-              </p>
-
-            </div>
+            <span>
+              PWA
+            </span>
 
           </article>
 
 
-          <article class="blog-card">
+          <article class="blog-card card">
 
             <div class="blog-icon">
-              📱
+              🗄️
             </div>
 
-            <div>
+            <h3>
+              Getting Started with Supabase
+            </h3>
 
-              <span>
-                PWA
-              </span>
+            <p>
+              Supabase provides authentication,
+              database and storage features for modern apps.
+            </p>
 
-              <h3>
-                Why Progressive Web Apps?
-              </h3>
-
-              <p>
-                Understanding how websites can become
-                installable and work like applications.
-              </p>
-
-            </div>
+            <span>
+              Supabase
+            </span>
 
           </article>
 
@@ -894,9 +647,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          GALLERY
-    =========================================== -->
+    ================================= -->
 
     <section
       id="gallery"
@@ -905,15 +658,19 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            My Photos
+          <p class="eyebrow">
+            Gallery
           </p>
 
           <h2>
-            Gallery
+            My Gallery
           </h2>
+
+          <p>
+            Photos and visual content will appear here.
+          </p>
 
         </div>
 
@@ -923,18 +680,14 @@
           class="gallery-grid"
         >
 
-          <div class="gallery-empty">
+          <div class="gallery-placeholder card">
 
             <div>
-              📸
+              🖼️
             </div>
 
-            <h3>
-              Gallery Coming Soon
-            </h3>
-
             <p>
-              Personal photos will appear here.
+              Gallery images will be loaded from Supabase.
             </p>
 
           </div>
@@ -946,9 +699,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          GITHUB
-    =========================================== -->
+    ================================= -->
 
     <section
       id="github"
@@ -957,7 +710,7 @@
 
       <div class="container">
 
-        <div class="github-box">
+        <div class="github-box card">
 
           <div class="github-icon">
             🐙
@@ -965,25 +718,29 @@
 
           <div>
 
+            <p class="eyebrow">
+              Open Source
+            </p>
+
             <h2>
-              Find Me on GitHub
+              GitHub
             </h2>
 
             <p>
-              Explore my coding projects, experiments
-              and open-source work.
+              Explore my projects, experiments and
+              source code on GitHub.
             </p>
 
-          </div>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Visit GitHub
+            </a>
 
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener"
-            class="btn primary-btn"
-          >
-            Visit GitHub
-          </a>
+          </div>
 
         </div>
 
@@ -992,9 +749,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          CONTACT
-    =========================================== -->
+    ================================= -->
 
     <section
       id="contact"
@@ -1003,94 +760,50 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            Let's Connect
+          <p class="eyebrow">
+            Contact
           </p>
 
           <h2>
-            Contact Me
+            Get In Touch
           </h2>
+
+          <p>
+            Send me a message through the form below.
+          </p>
 
         </div>
 
 
         <div class="contact-grid">
 
+          <div class="contact-info card">
 
-          <div class="contact-info">
+            <h3>
+              Contact Information
+            </h3>
 
-            <div class="contact-card">
+            <p>
+              📧 ykedir106@gmail.com
+            </p>
 
-              <div class="contact-icon">
-                📧
-              </div>
+            <p>
+              📱 +251 925 702 779
+            </p>
 
-              <div>
-
-                <h3>
-                  Email
-                </h3>
-
-                <p>
-                  yusufkedir@example.com
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="contact-card">
-
-              <div class="contact-icon">
-                📱
-              </div>
-
-              <div>
-
-                <h3>
-                  Phone
-                </h3>
-
-                <p>
-                  +251 XXX XXX XXX
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="contact-card">
-
-              <div class="contact-icon">
-                📍
-              </div>
-
-              <div>
-
-                <h3>
-                  Location
-                </h3>
-
-                <p>
-                  Ethiopia
-                </p>
-
-              </div>
-
-            </div>
-
+            <p>
+              📍 Chiro, Ethiopia
+            </p>
 
             <a
-              href="https://wa.me/"
+              href="https://wa.me/251925702779"
               target="_blank"
-              rel="noopener"
-              class="whatsapp-btn"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
             >
-              💬 Chat on WhatsApp
+              💬 WhatsApp Me
             </a>
 
           </div>
@@ -1098,63 +811,51 @@
 
           <form
             id="contactForm"
-            class="contact-form"
+            class="contact-form card"
           >
 
-            <div class="form-group">
+            <label for="contactName">
+              Name
+            </label>
 
-              <label for="contactName">
-                Your Name
-              </label>
-
-              <input
-                type="text"
-                id="contactName"
-                name="name"
-                placeholder="Enter your name"
-                required
-              >
-
-            </div>
+            <input
+              id="contactName"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              required
+            >
 
 
-            <div class="form-group">
+            <label for="contactEmail">
+              Email
+            </label>
 
-              <label for="contactEmail">
-                Your Email
-              </label>
-
-              <input
-                type="email"
-                id="contactEmail"
-                name="email"
-                placeholder="Enter your email"
-                required
-              >
-
-            </div>
+            <input
+              id="contactEmail"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              required
+            >
 
 
-            <div class="form-group">
+            <label for="contactMessage">
+              Message
+            </label>
 
-              <label for="contactMessage">
-                Your Message
-              </label>
-
-              <textarea
-                id="contactMessage"
-                name="message"
-                rows="6"
-                placeholder="Write your message..."
-                required
-              ></textarea>
-
-            </div>
+            <textarea
+              id="contactMessage"
+              name="message"
+              rows="6"
+              placeholder="Write your message..."
+              required
+            ></textarea>
 
 
             <button
               type="submit"
-              class="btn primary-btn"
+              class="btn btn-primary"
             >
               Send Message
             </button>
@@ -1168,9 +869,9 @@
     </section>
 
 
-    <!-- ==========================================
+    <!-- ================================
          ADMIN LOGIN
-    =========================================== -->
+    ================================= -->
 
     <section
       id="admin"
@@ -1179,84 +880,76 @@
 
       <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <p>
-            Secure Area
+          <p class="eyebrow">
+            Administration
           </p>
 
           <h2>
             Admin Login
           </h2>
 
+          <p>
+            Login to manage portfolio content.
+          </p>
+
         </div>
 
 
-        <div class="admin-container">
+        <div class="admin-wrapper">
 
           <form
             id="adminLoginForm"
-            class="admin-form"
+            class="admin-form card"
           >
 
-            <div class="admin-icon">
+            <div class="admin-lock">
               🔐
             </div>
 
             <h3>
-              Admin Dashboard
+              Admin Dashboard Login
             </h3>
 
-            <p>
-              Sign in to manage your portfolio.
-            </p>
+
+            <label for="adminEmail">
+              Email
+            </label>
+
+            <input
+              id="adminEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Admin email"
+              required
+            >
 
 
-            <div class="form-group">
+            <label for="adminPassword">
+              Password
+            </label>
 
-              <label for="adminEmail">
-                Email
-              </label>
-
-              <input
-                type="email"
-                id="adminEmail"
-                name="email"
-                placeholder="Admin email"
-                autocomplete="email"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="adminPassword">
-                Password
-              </label>
-
-              <input
-                type="password"
-                id="adminPassword"
-                name="password"
-                placeholder="Password"
-                autocomplete="current-password"
-                required
-              >
-
-            </div>
+            <input
+              id="adminPassword"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Password"
+              required
+            >
 
 
             <button
               type="submit"
-              class="btn primary-btn"
+              class="btn btn-primary"
             >
-              Login
+              🔐 Login
             </button>
 
             <p class="admin-note">
-              Admin authentication is powered by Supabase.
+              Secure authentication is handled by Supabase.
             </p>
 
           </form>
@@ -1270,47 +963,33 @@
   </main>
 
 
-  <!-- ==========================================
+  <!-- ================================
        FOOTER
-  =========================================== -->
+  ================================= -->
 
   <footer class="footer">
 
-    <div class="container">
+    <div class="container footer-content">
 
-      <div class="footer-content">
+      <div>
 
-        <div>
+        <h3>
+          Yusuf Kedir
+        </h3>
 
-          <h3>
-            YKD.
-          </h3>
-
-          <p>
-            Yusuf Kedir Dadi
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <p>
-            Web Developer • Programmer • Technology
-            Enthusiast
-          </p>
-
-        </div>
+        <p>
+          Web Developer • Programmer • PWA Developer
+        </p>
 
       </div>
 
 
-      <div class="footer-bottom">
+      <div>
 
         <p>
           ©
           <span id="year"></span>
-          Yusuf Kedir Dadi. All Rights Reserved.
+          Yusuf Kedir. All rights reserved.
         </p>
 
         <p>
@@ -1324,28 +1003,32 @@
   </footer>
 
 
-  <!-- ==========================================
+  <!-- ================================
        TOAST
-  =========================================== -->
+  ================================= -->
 
   <div
     id="toast"
     class="toast"
-    role="alert"
+    role="status"
     aria-live="polite"
   ></div>
 
 
-  <!-- ==========================================
-       SUPABASE + JAVASCRIPT
-  =========================================== -->
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase CDN -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
 
+  <!-- Supabase Configuration -->
   <script src="./supabase.js"></script>
 
+  <!-- Main Application -->
   <script src="./app.js"></script>
 
-
 </body>
-    </html>
+  </html>
