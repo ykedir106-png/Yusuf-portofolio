@@ -1,2700 +1,1203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
 
-<title>Yusuf Kedir | Digital Portfolio</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="Yusuf Kedir — Web Developer, Programmer and Digital Technology Enthusiast">
+  <meta name="theme-color" content="#0b6b4f">
 
-<meta name="theme-color" content="#2563eb">
+  <meta name="description"
+        content="Yusuf Kedir - Web Developer, Programmer and Technology Enthusiast">
 
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icons/icon-192.png">
+  <meta name="author" content="Yusuf Kedir">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>Yusuf Kedir | Portfolio</title>
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css">
 
-html{
-  scroll-behavior:smooth;
-}
+  <!-- Favicon / PWA -->
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.json">
 
-body{
-  font-family:Inter,Arial,Helvetica,sans-serif;
-  background:#f8fafc;
-  color:#0f172a;
-  line-height:1.6;
-}
-
-body.dark{
-  background:#020617;
-  color:#e2e8f0;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.container{
-  width:min(1150px,92%);
-  margin:auto;
-}
-
-/* NAV */
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #e2e8f0;
-}
-
-.dark header{
-  background:rgba(2,6,23,.92);
-  border-color:#1e293b;
-}
-
-.navbar{
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.logo{
-  font-size:25px;
-  font-weight:900;
-  color:#2563eb;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:22px;
-}
-
-.nav-links a{
-  font-size:14px;
-  font-weight:700;
-}
-
-.nav-links a:hover{
-  color:#2563eb;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-btn{
-  border:0;
-  background:transparent;
-  padding:8px;
-  font-size:20px;
-}
-
-.menu-btn{
-  display:none;
-}
-
-/* HERO */
-.hero{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(37,99,235,.18),
-      transparent 35%
-    );
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:60px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1.05;
-  margin:15px 0 20px;
-}
-
-.gradient{
-  background:linear-gradient(
-    90deg,
-    #2563eb,
-    #7c3aed
-  );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero-text{
-  font-size:19px;
-  color:#64748b;
-  max-width:650px;
-  margin-bottom:30px;
-}
-
-.dark .hero-text{
-  color:#94a3b8;
-}
-
-.buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:0;
-  border-radius:12px;
-  padding:13px 20px;
-  font-weight:800;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.primary{
-  background:#2563eb;
-  color:white;
-}
-
-.primary:hover{
-  background:#1d4ed8;
-}
-
-.secondary{
-  background:#e2e8f0;
-  color:#0f172a;
-}
-
-.dark .secondary{
-  background:#1e293b;
-  color:#e2e8f0;
-}
-
-.danger{
-  background:#dc2626;
-  color:white;
-}
-
-.small{
-  padding:8px 12px;
-  font-size:13px;
-}
-
-/* PROFILE */
-.profile-wrap{
-  display:flex;
-  justify-content:center;
-}
-
-.profile{
-  width:min(340px,100%);
-  padding:12px;
-  border-radius:30px;
-  background:linear-gradient(
-    135deg,
-    #2563eb,
-    #7c3aed
-  );
-  box-shadow:0 25px 70px rgba(37,99,235,.25);
-}
-
-.profile-inner{
-  overflow:hidden;
-  border-radius:22px;
-  background:white;
-}
-
-.dark .profile-inner{
-  background:#0f172a;
-}
-
-.profile img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
-  display:block;
-}
-
-/* SECTIONS */
-section{
-  padding:90px 0;
-}
-
-.title{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.title h2{
-  font-size:38px;
-  margin-bottom:10px;
-}
-
-.title p{
-  color:#64748b;
-}
-
-.dark .title p{
-  color:#94a3b8;
-}
-
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.card{
-  background:white;
-  border:1px solid #e2e8f0;
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 10px 30px rgba(15,23,42,.05);
-}
-
-.dark .card{
-  background:#0f172a;
-  border-color:#1e293b;
-  box-shadow:none;
-}
-
-/* SKILLS */
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-}
-
-.skill{
-  padding:10px 16px;
-  border-radius:999px;
-  background:#dbeafe;
-  color:#1e40af;
-  font-weight:800;
-}
-
-.dark .skill{
-  background:#172554;
-  color:#bfdbfe;
-}
-
-/* PROJECT */
-.project-image,
-.post-image{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  border-radius:12px;
-  margin-bottom:15px;
-}
-
-.project-card p,
-.post-card p{
-  color:#64748b;
-  margin:10px 0 15px;
-}
-
-.dark .project-card p,
-.dark .post-card p{
-  color:#94a3b8;
-}
-
-/* GALLERY */
-.gallery{
-  columns:3 250px;
-  column-gap:18px;
-}
-
-.gallery-item{
-  break-inside:avoid;
-  margin-bottom:18px;
-}
-
-.gallery-item img{
-  width:100%;
-  display:block;
-  border-radius:15px;
-  cursor:pointer;
-}
-
-/* GITHUB */
-.github-box{
-  text-align:center;
-}
-
-.github-form{
-  display:flex;
-  max-width:650px;
-  margin:auto;
-  gap:10px;
-}
-
-.github-form input{
-  flex:1;
-}
-
-.github-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:25px;
-}
-
-/* CONTACT */
-.contact-grid{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:30px;
-}
-
-.contact-info{
-  display:grid;
-  gap:15px;
-}
-
-.contact-item{
-  background:#eff6ff;
-  border-radius:15px;
-  padding:20px;
-}
-
-.dark .contact-item{
-  background:#0f172a;
-}
-
-.form{
-  display:grid;
-  gap:14px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:13px 14px;
-  border-radius:10px;
-  border:1px solid #cbd5e1;
-  background:white;
-  color:#0f172a;
-  outline:none;
-}
-
-.dark input,
-.dark textarea,
-.dark select{
-  background:#020617;
-  color:#e2e8f0;
-  border-color:#334155;
-}
-
-textarea{
-  min-height:150px;
-  resize:vertical;
-}
-
-/* ADMIN */
-.admin-section{
-  background:#f1f5f9;
-}
-
-.dark .admin-section{
-  background:#020617;
-}
-
-.login-box{
-  max-width:500px;
-  margin:auto;
-}
-
-.dashboard{
-  display:grid;
-  gap:25px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.stat{
-  background:white;
-  border:1px solid #e2e8f0;
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-}
-
-.dark .stat{
-  background:#0f172a;
-  border-color:#1e293b;
-}
-
-.stat strong{
-  display:block;
-  font-size:32px;
-  color:#2563eb;
-}
-
-.tabs{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.tab{
-  border:0;
-  padding:10px 15px;
-  border-radius:9px;
-  background:#e2e8f0;
-  font-weight:700;
-}
-
-.dark .tab{
-  background:#1e293b;
-  color:white;
-}
-
-.tab.active{
-  background:#2563eb;
-  color:white;
-}
-
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
-}
-
-.admin-list{
-  display:grid;
-  gap:14px;
-  margin-top:20px;
-}
-
-.admin-item{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:18px;
-  background:white;
-  border:1px solid #e2e8f0;
-  border-radius:12px;
-}
-
-.dark .admin-item{
-  background:#0f172a;
-  border-color:#1e293b;
-}
-
-.admin-actions{
-  display:flex;
-  gap:7px;
-  align-items:flex-start;
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#64748b;
-}
-
-.hidden{
-  display:none!important;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:3000;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:min(700px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:white;
-  border-radius:18px;
-  padding:25px;
-}
-
-.dark .modal-box{
-  background:#0f172a;
-}
-
-.close{
-  float:right;
-  border:0;
-  background:transparent;
-  font-size:25px;
-}
-
-/* TOAST */
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translate(-50%,100px);
-  opacity:0;
-  background:#0f172a;
-  color:white;
-  padding:13px 20px;
-  border-radius:10px;
-  transition:.3s;
-  z-index:5000;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:35px 0;
-  border-top:1px solid #e2e8f0;
-  color:#64748b;
-}
-
-.dark footer{
-  border-color:#1e293b;
-  color:#94a3b8;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    right:0;
-    padding:20px;
-    flex-direction:column;
-    background:white;
-    border-bottom:1px solid #e2e8f0;
-  }
-
-  .dark .nav-links{
-    background:#020617;
-    border-color:#1e293b;
-  }
-
-  .nav-links.show{
-    display:flex;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .buttons{
-    justify-content:center;
-  }
-
-  .grid,
-  .github-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:600px){
-
-  section{
-    padding:65px 0;
-  }
-
-  .hero{
-    min-height:auto;
-    padding:80px 0;
-  }
-
-  .hero h1{
-    font-size:45px;
-  }
-
-  .grid,
-  .github-grid{
-    grid-template-columns:1fr;
-  }
-
-  .github-form{
-    flex-direction:column;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .admin-item{
-    flex-direction:column;
-  }
-}
-</style>
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-<header>
-<div class="container navbar">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<a class="logo" href="#home">YKD.</a>
+<header class="navbar">
 
-<nav id="navLinks" class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#blog">Blog</a>
-<a href="#gallery">Gallery</a>
-<a href="#github">GitHub</a>
-<a href="#contact">Contact</a>
-<a href="#admin">Admin</a>
-</nav>
+  <div class="nav-container">
 
-<div class="nav-actions">
+    <a href="#home" class="logo">
+      YKD<span>.</span>
+    </a>
 
-<select id="lang">
-<option value="en">English</option>
-<option value="om">Afaan Oromoo</option>
-<option value="am">አማርኛ</option>
-</select>
+    <button id="menuBtn"
+            class="menu-btn"
+            type="button"
+            aria-label="Open menu">
+      ☰
+    </button>
 
-<button id="themeBtn" class="icon-btn">🌙</button>
-<button id="menuBtn" class="icon-btn menu-btn">☰</button>
+    <nav id="navMenu" class="nav-menu">
 
-</div>
-</div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#github">GitHub</a>
+      <a href="#contact">Contact</a>
+      <a href="#admin">Admin</a>
+
+      <select id="lang" aria-label="Language">
+        <option value="en">English</option>
+        <option value="om">Afaan Oromoo</option>
+        <option value="am">አማርኛ</option>
+        <option value="ar">العربية</option>
+      </select>
+
+      <button id="themeBtn"
+              class="theme-btn"
+              type="button">
+        🌙
+      </button>
+
+    </nav>
+
+  </div>
+
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="container hero-grid">
 
-<div>
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<p>👋 Welcome to my digital portfolio</p>
+<main>
 
-<h1>
-I'm
-<span class="gradient">Yusuf Kedir</span>
-</h1>
+<section id="home" class="hero section">
 
-<p class="hero-text">
-Web Developer, Programmer and Technology Enthusiast.
-I build modern websites, web applications and digital experiences.
-</p>
+  <div class="container hero-content">
 
-<div class="buttons">
-<a href="#projects" class="btn primary">
-View Projects
-</a>
+    <div class="hero-text">
 
-<a href="#contact" class="btn secondary">
-Contact Me
-</a>
-</div>
+      <p class="hero-small">
+        Welcome to my portfolio
+      </p>
 
-</div>
+      <h1>
+        I'm <span>Yusuf Kedir</span>
+      </h1>
 
-<div class="profile-wrap">
-<div class="profile">
-<div class="profile-inner">
+      <h2>
+        Web Developer • Programmer • Technology Enthusiast
+      </h2>
 
-<img
-src="./icons/icon-512.png"
-alt="Yusuf Kedir"
->
+      <p>
+        I build modern websites, Progressive Web Apps,
+        database-connected applications and digital solutions.
+      </p>
 
-</div>
-</div>
-</div>
+      <div class="hero-buttons">
 
-</div>
+        <a href="#projects" class="btn primary-btn">
+          View My Projects
+        </a>
+
+        <a href="#contact" class="btn secondary-btn">
+          Contact Me
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="./icons/icon-512.png"
+        alt="Yusuf Kedir"
+        loading="lazy"
+      >
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-<div class="container">
 
-<div class="title">
-<h2>About Me</h2>
-<p>Building digital ideas into useful products.</p>
-</div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-<div class="grid">
+<section id="about" class="section">
 
-<div class="card">
-<h3>💻 Web Development</h3>
-<p>
-Responsive websites using HTML, CSS,
-JavaScript and modern technologies.
-</p>
-</div>
+  <div class="container">
 
-<div class="card">
-<h3>🚀 Programming</h3>
-<p>
-Learning and building useful applications
-with different programming languages.
-</p>
-</div>
+    <div class="section-title">
 
-<div class="card">
-<h3>📱 PWA Development</h3>
-<p>
-Installable, fast and mobile-friendly
-Progressive Web Applications.
-</p>
-</div>
+      <p>About Me</p>
 
-</div>
-</div>
+      <h2>Who I Am</h2>
+
+    </div>
+
+    <div class="about-grid">
+
+      <article class="card">
+
+        <div class="card-icon">💻</div>
+
+        <h3>Web Development</h3>
+
+        <p>
+          I create responsive and modern websites
+          using HTML, CSS and JavaScript.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="card-icon">📱</div>
+
+        <h3>PWA Development</h3>
+
+        <p>
+          I build Progressive Web Apps that work
+          across mobile and desktop devices.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="card-icon">🗄️</div>
+
+        <h3>Database</h3>
+
+        <p>
+          I work with Supabase and modern database
+          technologies to create connected applications.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-<div class="container">
 
-<div class="title">
-<h2>My Skills</h2>
-<p>Technologies I work and learn with.</p>
-</div>
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
-<div id="skillsList" class="skills"></div>
+<section id="skills" class="section">
 
-</div>
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>My Skills</p>
+
+      <h2>Technologies I Use</h2>
+
+    </div>
+
+    <div id="skillsList" class="skills-grid">
+
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+      <div class="skill">C++</div>
+      <div class="skill">Java</div>
+      <div class="skill">Android</div>
+      <div class="skill">PWA</div>
+      <div class="skill">Supabase</div>
+      <div class="skill">Database</div>
+      <div class="skill">GitHub</div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-<div class="container">
 
-<div class="title">
-<h2>My Projects</h2>
-<p>My latest digital projects.</p>
-</div>
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
-<div id="projectsGrid" class="grid"></div>
+<section id="projects" class="section">
 
-</div>
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>My Work</p>
+
+      <h2>Projects</h2>
+
+    </div>
+
+    <div class="project-search">
+
+      <input
+        id="projectSearch"
+        type="search"
+        placeholder="Search projects..."
+      >
+
+    </div>
+
+    <div id="projectsGrid" class="content-grid">
+
+      <div class="loading">
+        Loading projects...
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- BLOG -->
-<section id="blog">
-<div class="container">
 
-<div class="title">
-<h2>Blog</h2>
-<p>Technology articles and ideas.</p>
-</div>
+<!-- =====================================================
+     BLOG
+===================================================== -->
 
-<div id="postsGrid" class="grid"></div>
+<section id="blog" class="section">
 
-</div>
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Articles</p>
+
+      <h2>My Blog</h2>
+
+    </div>
+
+    <div id="postsGrid" class="content-grid">
+
+      <div class="loading">
+        Loading blog posts...
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- GALLERY -->
-<section id="gallery">
-<div class="container">
 
-<div class="title">
-<h2>Gallery</h2>
-<p>Digital memories and photos.</p>
-</div>
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 
-<div id="galleryGrid" class="gallery"></div>
+<section id="gallery" class="section">
 
-</div>
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Photos</p>
+
+      <h2>Gallery</h2>
+
+    </div>
+
+    <div id="galleryGrid" class="gallery-grid">
+
+      <div class="loading">
+        Loading gallery...
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- GITHUB -->
-<section id="github">
-<div class="container">
 
-<div class="title">
-<h2>GitHub</h2>
-<p>Explore open-source repositories.</p>
-</div>
+<!-- =====================================================
+     GITHUB
+===================================================== -->
 
-<div class="card github-box">
+<section id="github" class="section">
 
-<div class="github-form">
+  <div class="container">
 
-<input
-id="githubUsername"
-placeholder="GitHub username"
->
+    <div class="section-title">
 
-<button
-id="githubBtn"
-class="btn primary"
->
-Load
-</button>
+      <p>Open Source</p>
 
-</div>
+      <h2>GitHub Projects</h2>
 
-<div id="githubRepos" class="github-grid"></div>
+    </div>
 
-</div>
+    <div class="github-search">
 
-</div>
+      <input
+        id="githubUsername"
+        type="text"
+        placeholder="GitHub username"
+        value="yusufkedir"
+      >
+
+      <button
+        id="githubLoadBtn"
+        class="btn primary-btn"
+        type="button">
+        Load GitHub
+      </button>
+
+    </div>
+
+    <div id="githubRepos" class="content-grid">
+
+      <p>
+        Enter a GitHub username to load repositories.
+      </p>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="container">
 
-<div class="title">
-<h2>Contact Me</h2>
-<p>Let's build something great together.</p>
-</div>
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-<div class="contact-grid">
+<section id="contact" class="section">
 
-<div class="contact-info">
+  <div class="container">
 
-<div class="contact-item">
-<strong>📧 Email</strong>
-<p>ykedir106@gmail.com</p>
-</div>
+    <div class="section-title">
 
-<div class="contact-item">
-<strong>💬 WhatsApp</strong>
-<p>Available for communication.</p>
-</div>
+      <p>Get In Touch</p>
 
-<div class="contact-item">
-<strong>🌍 Location</strong>
-<p>Ethiopia</p>
-</div>
+      <h2>Contact Me</h2>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="contact-grid">
 
-<form id="contactForm" class="form">
+      <div class="contact-info">
 
-<input
-id="contactName"
-placeholder="Your name"
-required
->
+        <h3>Let's Work Together</h3>
 
-<input
-id="contactEmail"
-type="email"
-placeholder="Your email"
->
+        <p>
+          If you have a project, question or idea,
+          feel free to contact me.
+        </p>
 
-<textarea
-id="contactMessage"
-placeholder="Your message"
-required
-></textarea>
+        <p>
+          📧
+          <strong>Email:</strong>
+          ykedir106@gmail.com
+        </p>
 
-<button
-class="btn primary"
-type="submit"
->
-Send Message
-</button>
+        <p>
+          📱
+          <strong>Phone:</strong>
+          +251925702779
+        </p>
 
-</form>
+        <p>
+          📍
+          <strong>Location:</strong>
+          Chiro City, Ethiopia
+        </p>
 
-</div>
+      </div>
 
-</div>
-</div>
+
+      <form id="contactForm" class="contact-form">
+
+        <label for="contactName">
+          Name
+        </label>
+
+        <input
+          id="contactName"
+          type="text"
+          required
+          placeholder="Your name"
+        >
+
+
+        <label for="contactEmail">
+          Email
+        </label>
+
+        <input
+          id="contactEmail"
+          type="email"
+          required
+          placeholder="Your email"
+        >
+
+
+        <label for="contactMessage">
+          Message
+        </label>
+
+        <textarea
+          id="contactMessage"
+          rows="6"
+          required
+          placeholder="Write your message..."
+        ></textarea>
+
+
+        <button
+          type="submit"
+          class="btn primary-btn">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- ADMIN -->
-<section id="admin" class="admin-section">
-<div class="container">
 
-<!-- LOGIN -->
-<div id="loginBox" class="login-box card">
+<!-- =====================================================
+     ADMIN
+===================================================== -->
 
-<div class="title">
-<h2>🔐 Admin Login</h2>
-<p>Authorized administrators only.</p>
-</div>
+<section id="admin" class="section admin-section">
 
-<form id="loginForm" class="form">
+  <div class="container">
 
-<input
-id="loginEmail"
-type="email"
-placeholder="Admin email"
-required
->
+    <div class="section-title">
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Password"
-required
->
+      <p>Private Area</p>
 
-<button class="btn primary" type="submit">
-Login
-</button>
+      <h2>Admin</h2>
 
-</form>
+    </div>
 
-</div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="dashboard hidden">
+    <!-- ================= LOGIN ================= -->
 
-<div>
-<h2>⚡ Admin Dashboard</h2>
-<p>Manage your digital portfolio.</p>
-</div>
+    <div id="loginBox" class="admin-login">
 
-<div class="stats">
+      <div class="admin-card">
 
-<div class="stat">
-<strong id="statProjects">0</strong>
-Projects
-</div>
+        <div class="admin-icon">
+          🔐
+        </div>
 
-<div class="stat">
-<strong id="statPosts">0</strong>
-Blog Posts
-</div>
+        <h3>Admin Login</h3>
 
-<div class="stat">
-<strong id="statGallery">0</strong>
-Gallery
-</div>
+        <p>
+          Login to manage your portfolio.
+        </p>
 
-<div class="stat">
-<strong id="statMessages">0</strong>
-Messages
-</div>
+        <form id="loginForm">
 
-</div>
+          <label for="loginEmail">
+            Email
+          </label>
 
-<div class="tabs">
+          <input
+            id="loginEmail"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="Admin email"
+          >
 
-<button class="tab active" data-tab="projectsAdmin">
-Projects
-</button>
 
-<button class="tab" data-tab="postsAdmin">
-Blog
-</button>
+          <label for="loginPassword">
+            Password
+          </label>
 
-<button class="tab" data-tab="galleryAdmin">
-Gallery
-</button>
+          <input
+            id="loginPassword"
+            type="password"
+            required
+            autocomplete="current-password"
+            placeholder="Password"
+          >
 
-<button class="tab" data-tab="messagesAdmin">
-Messages
-</button>
 
-<button id="logoutBtn" class="tab">
-Logout
-</button>
+          <button
+            id="loginBtn"
+            type="submit"
+            class="btn primary-btn">
+            Login
+          </button>
 
-</div>
+        </form>
 
-<!-- PROJECT PANEL -->
-<div id="projectsAdmin" class="panel active card">
+        <p id="loginStatus" class="status-message"></p>
 
-<h3>Add / Edit Project</h3>
-<br>
+      </div>
 
-<form id="projectForm" class="form">
+    </div>
 
-<input id="projectId" type="hidden">
-
-<input
-id="projectTitle"
-placeholder="Project title"
-required
->
 
-<textarea
-id="projectDescription"
-placeholder="Project description"
-></textarea>
+    <!-- =================================================
+         ADMIN DASHBOARD
+    ================================================== -->
 
-<input
-id="projectImage"
-placeholder="Image URL"
->
+    <div id="dashboard" class="admin-dashboard hidden">
 
-<input
-id="projectLink"
-placeholder="Project URL"
->
+      <div class="dashboard-header">
 
-<input
-id="projectCategory"
-placeholder="Category"
->
+        <div>
 
-<div class="buttons">
+          <p class="dashboard-label">
+            ADMIN PANEL
+          </p>
 
-<button class="btn primary" type="submit">
-Save Project
-</button>
+          <h2>
+            Admin Dashboard
+          </h2>
 
-<button
-id="projectCancel"
-class="btn secondary"
-type="button"
->
-Cancel
-</button>
+          <p id="adminUserEmail">
+            Logged in
+          </p>
 
-</div>
+        </div>
 
-</form>
 
-<div id="adminProjectsList" class="admin-list"></div>
+        <button
+          id="logoutBtn"
+          type="button"
+          class="btn danger-btn">
+          Logout
+        </button>
 
-</div>
+      </div>
 
-<!-- BLOG PANEL -->
-<div id="postsAdmin" class="panel card">
 
-<h3>Add / Edit Blog</h3>
-<br>
+      <!-- ================= STATS ================= -->
 
-<form id="postForm" class="form">
+      <div class="stats-grid">
 
-<input id="postId" type="hidden">
+        <div class="stat-card">
 
-<input
-id="postTitle"
-placeholder="Post title"
-required
->
+          <span class="stat-icon">
+            📁
+          </span>
 
-<input
-id="postCategory"
-placeholder="Category"
->
+          <div>
 
-<input
-id="postImage"
-placeholder="Image URL"
->
+            <strong id="statProjects">
+              0
+            </strong>
 
-<textarea
-id="postExcerpt"
-placeholder="Short excerpt"
-></textarea>
+            <p>
+              Projects
+            </p>
 
-<textarea
-id="postContent"
-placeholder="Full article"
-></textarea>
+          </div>
 
-<div class="buttons">
+        </div>
 
-<button class="btn primary" type="submit">
-Save Post
-</button>
 
-<button
-id="postCancel"
-class="btn secondary"
-type="button"
->
-Cancel
-</button>
+        <div class="stat-card">
 
-</div>
+          <span class="stat-icon">
+            📝
+          </span>
 
-</form>
+          <div>
 
-<div id="adminPostsList" class="admin-list"></div>
+            <strong id="statPosts">
+              0
+            </strong>
 
-</div>
+            <p>
+              Blog Posts
+            </p>
 
-<!-- GALLERY PANEL -->
-<div id="galleryAdmin" class="panel card">
+          </div>
 
-<h3>🖼️ Gallery Upload</h3>
-<br>
+        </div>
 
-<form id="galleryForm" class="form">
 
-<input
-id="galleryTitle"
-placeholder="Photo title"
->
+        <div class="stat-card">
 
-<input
-id="galleryFiles"
-type="file"
-accept="image/*"
-multiple
-required
->
+          <span class="stat-icon">
+            🖼️
+          </span>
 
-<button class="btn primary" type="submit">
-Upload Images
-</button>
+          <div>
 
-</form>
+            <strong id="statGallery">
+              0
+            </strong>
 
-<div id="adminGalleryList" class="admin-list"></div>
+            <p>
+              Gallery
+            </p>
 
-</div>
+          </div>
 
-<!-- MESSAGE PANEL -->
-<div id="messagesAdmin" class="panel card">
+        </div>
 
-<h3>📨 Contact Messages</h3>
 
-<div id="adminMessagesList" class="admin-list"></div>
+        <div class="stat-card">
 
-</div>
+          <span class="stat-icon">
+            💬
+          </span>
 
-</div>
-</div>
+          <div>
+
+            <strong id="statMessages">
+              0
+            </strong>
+
+            <p>
+              Messages
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= DASHBOARD TABS ================= -->
+
+      <div class="dashboard-tabs">
+
+        <button
+          class="admin-tab active"
+          data-tab="projectsAdmin"
+          type="button">
+          📁 Projects
+        </button>
+
+        <button
+          class="admin-tab"
+          data-tab="postsAdmin"
+          type="button">
+          📝 Blog
+        </button>
+
+        <button
+          class="admin-tab"
+          data-tab="galleryAdmin"
+          type="button">
+          🖼️ Gallery
+        </button>
+
+        <button
+          class="admin-tab"
+          data-tab="messagesAdmin"
+          type="button">
+          💬 Messages
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           PROJECT ADMIN
+      ================================================== -->
+
+      <div
+        id="projectsAdmin"
+        class="admin-panel active">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>
+              Manage Projects
+            </h3>
+
+            <p>
+              Add, edit or delete portfolio projects.
+            </p>
+
+          </div>
+
+          <button
+            id="newProjectBtn"
+            class="btn primary-btn"
+            type="button">
+            + New Project
+          </button>
+
+        </div>
+
+
+        <form
+          id="projectForm"
+          class="admin-form hidden">
+
+          <input
+            id="projectId"
+            type="hidden"
+          >
+
+
+          <label for="projectTitle">
+            Project Title
+          </label>
+
+          <input
+            id="projectTitle"
+            type="text"
+            required
+            placeholder="Project title"
+          >
+
+
+          <label for="projectDescription">
+            Description
+          </label>
+
+          <textarea
+            id="projectDescription"
+            rows="5"
+            required
+            placeholder="Project description"
+          ></textarea>
+
+
+          <label for="projectImage">
+            Image URL
+          </label>
+
+          <input
+            id="projectImage"
+            type="url"
+            placeholder="https://..."
+          >
+
+
+          <label for="projectLink">
+            Project Link
+          </label>
+
+          <input
+            id="projectLink"
+            type="url"
+            placeholder="https://..."
+          >
+
+
+          <label for="projectCategory">
+            Category
+          </label>
+
+          <input
+            id="projectCategory"
+            type="text"
+            placeholder="Web / PWA / App..."
+          >
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="btn primary-btn">
+              Save Project
+            </button>
+
+            <button
+              id="projectCancel"
+              type="button"
+              class="btn secondary-btn">
+              Cancel
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <div id="adminProjectsList"
+             class="admin-list">
+
+          <div class="loading">
+            Loading projects...
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           BLOG ADMIN
+      ================================================== -->
+
+      <div
+        id="postsAdmin"
+        class="admin-panel hidden">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>
+              Manage Blog
+            </h3>
+
+            <p>
+              Create and manage blog posts.
+            </p>
+
+          </div>
+
+          <button
+            id="newPostBtn"
+            class="btn primary-btn"
+            type="button">
+            + New Post
+          </button>
+
+        </div>
+
+
+        <form
+          id="postForm"
+          class="admin-form hidden">
+
+          <input
+            id="postId"
+            type="hidden"
+          >
+
+
+          <label for="postTitle">
+            Post Title
+          </label>
+
+          <input
+            id="postTitle"
+            type="text"
+            required
+            placeholder="Blog title"
+          >
+
+
+          <label for="postCategory">
+            Category
+          </label>
+
+          <input
+            id="postCategory"
+            type="text"
+            placeholder="Technology"
+          >
+
+
+          <label for="postImage">
+            Image URL
+          </label>
+
+          <input
+            id="postImage"
+            type="url"
+            placeholder="https://..."
+          >
+
+
+          <label for="postExcerpt">
+            Short Description
+          </label>
+
+          <textarea
+            id="postExcerpt"
+            rows="3"
+            placeholder="Short description"
+          ></textarea>
+
+
+          <label for="postContent">
+            Full Content
+          </label>
+
+          <textarea
+            id="postContent"
+            rows="10"
+            placeholder="Write your article..."
+          ></textarea>
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="btn primary-btn">
+              Save Post
+            </button>
+
+            <button
+              id="postCancel"
+              type="button"
+              class="btn secondary-btn">
+              Cancel
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <div id="adminPostsList"
+             class="admin-list">
+
+          <div class="loading">
+            Loading posts...
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           GALLERY ADMIN
+      ================================================== -->
+
+      <div
+        id="galleryAdmin"
+        class="admin-panel hidden">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>
+              Manage Gallery
+            </h3>
+
+            <p>
+              Add photos to your portfolio gallery.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <form
+          id="galleryForm"
+          class="admin-form">
+
+          <label for="galleryTitle">
+            Image Title
+          </label>
+
+          <input
+            id="galleryTitle"
+            type="text"
+            placeholder="Photo title"
+          >
+
+
+          <label for="galleryFiles">
+            Image URL
+          </label>
+
+          <input
+            id="galleryFiles"
+            type="url"
+            required
+            placeholder="https://..."
+          >
+
+
+          <button
+            type="submit"
+            class="btn primary-btn">
+            + Add Image
+          </button>
+
+        </form>
+
+
+        <div id="adminGalleryList"
+             class="admin-gallery-list">
+
+          <div class="loading">
+            Loading gallery...
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           MESSAGES ADMIN
+      ================================================== -->
+
+      <div
+        id="messagesAdmin"
+        class="admin-panel hidden">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>
+              Contact Messages
+            </h3>
+
+            <p>
+              Messages sent through your contact form.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div id="adminMessagesList"
+             class="admin-list">
+
+          <div class="loading">
+            Loading messages...
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<footer>
-<div class="container">
+</main>
 
-<p>
-© <span id="year"></span> Yusuf Kedir.
-All rights reserved.
-</p>
 
-<p>
-Developed by Yusuf Kedir
-</p>
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
+
+<div
+  id="imageModal"
+  class="image-modal hidden">
+
+  <button
+    id="imageModalClose"
+    class="modal-close"
+    type="button"
+    aria-label="Close">
+    ×
+  </button>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="Gallery image"
+  >
 
 </div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+  id="toast"
+  class="toast"
+  role="status"
+  aria-live="polite">
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+  <div class="container">
+
+    <p>
+      © <span id="year"></span>
+      Yusuf Kedir. All rights reserved.
+    </p>
+
+    <p>
+      Developed by
+      <strong>
+        fileber abdulhamid 0915044161
+      </strong>
+    </p>
+
+  </div>
+
 </footer>
 
-<!-- IMAGE MODAL -->
-<div id="imageModal" class="modal">
 
-<div class="modal-box">
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-<button id="imageClose" class="close">×</button>
+<script type="module" src="./script.js"></script>
 
-<img
-id="modalImage"
-style="width:100%;border-radius:12px"
-alt="Gallery image"
->
 
-</div>
-</div>
-
-<div id="toast" class="toast"></div>
+<!-- =====================================================
+     PWA SERVICE WORKER
+===================================================== -->
 
 <script>
 
-/* ================================
-   SUPABASE
-================================ */
-
-const SUPABASE_URL =
-"https://uhusjizdjnloxjfbtgds.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_9f_AW2HeN-l-eHtb8RZvKA_S1FPY3xB";
-
-const db =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-
-/* ================================
-   STATE
-================================ */
-
-let projects=[];
-let posts=[];
-let gallery=[];
-let messages=[];
-let isAdmin=false;
-
-
-/* ================================
-   HELPERS
-================================ */
-
-const $ = s => document.querySelector(s);
-
-function toast(message){
-
-const el=$("#toast");
-
-el.textContent=message;
-
-el.classList.add("show");
-
-setTimeout(()=>{
-el.classList.remove("show");
-},3000);
-
-}
-
-function escapeHTML(value){
-
-if(value==null)return "";
-
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-}
-
-
-/* ================================
-   SKILLS
-================================ */
-
-const skills=[
-"HTML",
-"CSS",
-"JavaScript",
-"Java",
-"Python",
-"C++",
-"PWA",
-"Supabase",
-"Database",
-"GitHub",
-"Vercel",
-"Responsive Design"
-];
-
-$("#skillsList").innerHTML=
-skills.map(x=>`
-<span class="skill">
-${escapeHTML(x)}
-</span>
-`).join("");
-
-
-/* ================================
-   THEME
-================================ */
-
-function applyTheme(){
-
-const dark=
-localStorage.getItem("theme")==="dark";
-
-document.body.classList.toggle("dark",dark);
-
-$("#themeBtn").textContent=
-dark?"☀️":"🌙";
-}
-
-$("#themeBtn").onclick=()=>{
-
-const dark=
-document.body.classList.toggle("dark");
-
-localStorage.setItem(
-"theme",
-dark?"dark":"light"
-);
-
-$("#themeBtn").textContent=
-dark?"☀️":"🌙";
-};
-
-applyTheme();
-
-
-/* ================================
-   MOBILE MENU
-================================ */
-
-$("#menuBtn").onclick=()=>{
-$("#navLinks").classList.toggle("show");
-};
-
-document.querySelectorAll("#navLinks a")
-.forEach(a=>{
-a.onclick=()=>{
-$("#navLinks").classList.remove("show");
-};
-});
-
-
-/* ================================
-   PUBLIC DATA
-================================ */
-
-async function loadPublicData(){
-
-const results=await Promise.all([
-
-db.from("projects")
-.select("*")
-.order("created_at",{ascending:false}),
-
-db.from("posts")
-.select("*")
-.order("created_at",{ascending:false}),
-
-db.from("gallery")
-.select("*")
-.order("created_at",{ascending:false})
-
-]);
-
-if(results[0].error)
-console.error(results[0].error);
-
-if(results[1].error)
-console.error(results[1].error);
-
-if(results[2].error)
-console.error(results[2].error);
-
-projects=results[0].data||[];
-posts=results[1].data||[];
-gallery=results[2].data||[];
-
-renderProjects();
-renderPosts();
-renderGallery();
-}
-
-
-/* ================================
-   PROJECTS
-================================ */
-
-function renderProjects(){
-
-const grid=$("#projectsGrid");
-
-if(!projects.length){
-
-grid.innerHTML=
-`<div class="empty">No projects yet.</div>`;
-
-return;
-}
-
-grid.innerHTML=
-projects.map(p=>`
-
-<article class="card project-card">
-
-${p.image?`
-<img
-class="project-image"
-src="${escapeHTML(p.image)}"
-alt="${escapeHTML(p.title)}"
-loading="lazy">
-`:""}
-
-<h3>${escapeHTML(p.title)}</h3>
-
-<p>
-${escapeHTML(p.description||"")}
-</p>
-
-<div class="buttons">
-
-${p.link?`
-<a
-href="${escapeHTML(p.link)}"
-target="_blank"
-rel="noopener"
-class="btn primary small">
-View Project
-</a>
-`:""}
-
-${p.category?`
-<span class="skill">
-${escapeHTML(p.category)}
-</span>
-`:""}
-
-</div>
-
-</article>
-
-`).join("");
-}
-
-
-/* ================================
-   BLOG
-================================ */
-
-function renderPosts(){
-
-const grid=$("#postsGrid");
-
-if(!posts.length){
-
-grid.innerHTML=
-`<div class="empty">No blog posts yet.</div>`;
-
-return;
-}
-
-grid.innerHTML=
-posts.map(p=>`
-
-<article class="card post-card">
-
-${p.image?`
-<img
-class="post-image"
-src="${escapeHTML(p.image)}"
-alt="${escapeHTML(p.title)}"
-loading="lazy">
-`:""}
-
-<h3>${escapeHTML(p.title)}</h3>
-
-<p>
-${escapeHTML(
-p.excerpt||p.content||""
-)}
-</p>
-
-${p.content?`
-<button
-class="btn primary small"
-onclick="openPost(${p.id})">
-Read More
-</button>
-`:""}
-
-</article>
-
-`).join("");
-}
-
-function openPost(id){
-
-const p=
-posts.find(x=>String(x.id)===String(id));
-
-if(!p)return;
-
-const modal=document.createElement("div");
-
-modal.className="modal show";
-
-modal.innerHTML=`
-
-<div class="modal-box">
-
-<button
-class="close"
-onclick="this.closest('.modal').remove()">
-×
-</button>
-
-<h2>${escapeHTML(p.title)}</h2>
-
-<br>
-
-<p>
-${escapeHTML(p.content||"")}
-</p>
-
-</div>
-`;
-
-document.body.appendChild(modal);
-}
-
-
-/* ================================
-   GALLERY
-================================ */
-
-function renderGallery(){
-
-const grid=$("#galleryGrid");
-
-if(!gallery.length){
-
-grid.innerHTML=
-`<div class="empty">No gallery images yet.</div>`;
-
-return;
-}
-
-grid.innerHTML=
-gallery.map(g=>`
-
-<div class="gallery-item">
-
-<img
-src="${escapeHTML(g.image_url)}"
-alt="${escapeHTML(g.title||"Gallery")}"
-loading="lazy"
-onclick="openImage('${escapeHTML(g.image_url)}')"
->
-
-${g.title?`
-<p>${escapeHTML(g.title)}</p>
-`:""}
-
-</div>
-
-`).join("");
-}
-
-function openImage(url){
-
-$("#modalImage").src=url;
-
-$("#imageModal")
-.classList.add("show");
-}
-
-$("#imageClose").onclick=()=>{
-$("#imageModal").classList.remove("show");
-};
-
-$("#imageModal").onclick=e=>{
-if(e.target===$("#imageModal")){
-$("#imageModal").classList.remove("show");
-}
-};
-
-
-/* ================================
-   ADMIN CHECK
-================================ */
-
-async function checkAdmin(){
-
-const {data,error}=
-await db.auth.getUser();
-
-if(error||!data.user){
-
-isAdmin=false;
-return false;
-}
-
-const result=
-await db.rpc("is_admin");
-
-console.log(
-"Admin RPC:",
-result
-);
-
-if(result.error){
-
-console.error(result.error);
-
-isAdmin=false;
-
-return false;
-}
-
-isAdmin=result.data===true;
-
-return isAdmin;
-}
-
-
-/* ================================
-   ADMIN DATA
-================================ */
-
-async function loadAdminData(){
-
-if(!isAdmin)return;
-
-const result=
-await db.from("contact_messages")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(result.error){
-
-console.error(result.error);
-
-messages=[];
-
-}else{
-
-messages=result.data||[];
-
-}
-
-renderAdmin();
-}
-
-
-/* ================================
-   ADMIN RENDER
-================================ */
-
-function renderAdmin(){
-
-$("#statProjects").textContent=
-projects.length;
-
-$("#statPosts").textContent=
-posts.length;
-
-$("#statGallery").textContent=
-gallery.length;
-
-$("#statMessages").textContent=
-messages.length;
-
-renderAdminProjects();
-renderAdminPosts();
-renderAdminGallery();
-renderAdminMessages();
-}
-
-
-/* ================================
-   ADMIN PROJECTS
-================================ */
-
-function renderAdminProjects(){
-
-const list=$("#adminProjectsList");
-
-if(!projects.length){
-
-list.innerHTML=
-`<div class="empty">No projects.</div>`;
-
-return;
-}
-
-list.innerHTML=
-projects.map(p=>`
-
-<div class="admin-item">
-
-<div>
-
-<strong>
-${escapeHTML(p.title)}
-</strong>
-
-<p>
-${escapeHTML(p.description||"")}
-</p>
-
-</div>
-
-<div class="admin-actions">
-
-<button
-class="btn secondary small"
-onclick="editProject(${p.id})">
-Edit
-</button>
-
-<button
-class="btn danger small"
-onclick="deleteProject(${p.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-}
-
-$("#projectForm").onsubmit=
-async e=>{
-
-e.preventDefault();
-
-if(!isAdmin){
-
-toast("Admin access required.");
-
-return;
-}
-
-const id=$("#projectId").value;
-
-const payload={
-
-title:$("#projectTitle").value.trim(),
-
-description:
-$("#projectDescription").value.trim(),
-
-image:
-$("#projectImage").value.trim(),
-
-link:
-$("#projectLink").value.trim(),
-
-category:
-$("#projectCategory").value.trim()
-
-};
-
-let result;
-
-if(id){
-
-result=
-await db
-.from("projects")
-.update(payload)
-.eq("id",id);
-
-}else{
-
-result=
-await db
-.from("projects")
-.insert(payload);
-
-}
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast(
-id?
-"Project updated successfully."
-:
-"Project added successfully."
-);
-
-resetProject();
-
-await loadPublicData();
-
-await loadAdminData();
-};
-
-function editProject(id){
-
-const p=
-projects.find(x=>String(x.id)===String(id));
-
-if(!p)return;
-
-$("#projectId").value=p.id;
-
-$("#projectTitle").value=p.title||"";
-
-$("#projectDescription").value=
-p.description||"";
-
-$("#projectImage").value=
-p.image||"";
-
-$("#projectLink").value=
-p.link||"";
-
-$("#projectCategory").value=
-p.category||"";
-
-location.hash="admin";
-}
-
-function resetProject(){
-
-$("#projectForm").reset();
-
-$("#projectId").value="";
-}
-
-$("#projectCancel").onclick=
-resetProject;
-
-async function deleteProject(id){
-
-if(!isAdmin)return;
-
-if(!confirm("Delete this project?"))
-return;
-
-const result=
-await db
-.from("projects")
-.delete()
-.eq("id",id);
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast("Project deleted.");
-
-await loadPublicData();
-
-await loadAdminData();
-}
-
-
-/* ================================
-   BLOG ADMIN
-================================ */
-
-function renderAdminPosts(){
-
-const list=$("#adminPostsList");
-
-if(!posts.length){
-
-list.innerHTML=
-`<div class="empty">No posts.</div>`;
-
-return;
-}
-
-list.innerHTML=
-posts.map(p=>`
-
-<div class="admin-item">
-
-<div>
-
-<strong>
-${escapeHTML(p.title)}
-</strong>
-
-<p>
-${escapeHTML(p.excerpt||"")}
-</p>
-
-</div>
-
-<div class="admin-actions">
-
-<button
-class="btn secondary small"
-onclick="editPost(${p.id})">
-Edit
-</button>
-
-<button
-class="btn danger small"
-onclick="deletePost(${p.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-}
-
-$("#postForm").onsubmit=
-async e=>{
-
-e.preventDefault();
-
-if(!isAdmin){
-
-toast("Admin access required.");
-
-return;
-}
-
-const id=$("#postId").value;
-
-const payload={
-
-title:
-$("#postTitle").value.trim(),
-
-category:
-$("#postCategory").value.trim(),
-
-image:
-$("#postImage").value.trim(),
-
-excerpt:
-$("#postExcerpt").value.trim(),
-
-content:
-$("#postContent").value.trim()
-
-};
-
-let result;
-
-if(id){
-
-result=
-await db
-.from("posts")
-.update(payload)
-.eq("id",id);
-
-}else{
-
-result=
-await db
-.from("posts")
-.insert(payload);
-
-}
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast(
-id?
-"Post updated."
-:
-"Post created."
-);
-
-resetPost();
-
-await loadPublicData();
-
-await loadAdminData();
-};
-
-function editPost(id){
-
-const p=
-posts.find(x=>String(x.id)===String(id));
-
-if(!p)return;
-
-$("#postId").value=p.id;
-
-$("#postTitle").value=p.title||"";
-
-$("#postCategory").value=
-p.category||"";
-
-$("#postImage").value=
-p.image||"";
-
-$("#postExcerpt").value=
-p.excerpt||"";
-
-$("#postContent").value=
-p.content||"";
-}
-
-function resetPost(){
-
-$("#postForm").reset();
-
-$("#postId").value="";
-}
-
-$("#postCancel").onclick=
-resetPost;
-
-async function deletePost(id){
-
-if(!isAdmin)return;
-
-if(!confirm("Delete this post?"))
-return;
-
-const result=
-await db
-.from("posts")
-.delete()
-.eq("id",id);
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast("Post deleted.");
-
-await loadPublicData();
-
-await loadAdminData();
-}
-
-
-/* ================================
-   GALLERY ADMIN
-================================ */
-
-function renderAdminGallery(){
-
-const list=$("#adminGalleryList");
-
-if(!gallery.length){
-
-list.innerHTML=
-`<div class="empty">No images.</div>`;
-
-return;
-}
-
-list.innerHTML=
-gallery.map(g=>`
-
-<div class="admin-item">
-
-<div>
-
-<strong>
-${escapeHTML(g.title||"Image")}
-</strong>
-
-</div>
-
-<div class="admin-actions">
-
-<button
-class="btn danger small"
-onclick="deleteGallery(${g.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-}
-
-$("#galleryForm").onsubmit=
-async e=>{
-
-e.preventDefault();
-
-if(!isAdmin){
-
-toast("Admin access required.");
-
-return;
-}
-
-const files=
-Array.from($("#galleryFiles").files);
-
-const title=
-$("#galleryTitle").value.trim();
-
-let count=0;
-
-for(const file of files){
-
-try{
-
-const extension=
-file.name.split(".").pop().toLowerCase();
-
-const filename=
-crypto.randomUUID()+"."+extension;
-
-const path=
-"gallery/"+filename;
-
-const upload=
-await db.storage
-.from("portfolio-images")
-.upload(
-path,
-file,
-{
-cacheControl:"3600",
-upsert:false
-}
-);
-
-if(upload.error){
-
-console.error(upload.error);
-
-continue;
-}
-
-const publicUrl=
-db.storage
-.from("portfolio-images")
-.getPublicUrl(path)
-.data.publicUrl;
-
-const insert=
-await db
-.from("gallery")
-.insert({
-
-title:
-title||file.name,
-
-image_url:
-publicUrl
-
-});
-
-if(!insert.error){
-count++;
-}
-
-}catch(err){
-
-console.error(err);
-
-}
-
-}
-
-$("#galleryForm").reset();
-
-toast(
-count+" image(s) uploaded."
-);
-
-await loadPublicData();
-
-await loadAdminData();
-};
-
-async function deleteGallery(id){
-
-if(!isAdmin)return;
-
-if(!confirm("Delete this image?"))
-return;
-
-const result=
-await db
-.from("gallery")
-.delete()
-.eq("id",id);
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast("Image deleted.");
-
-await loadPublicData();
-
-await loadAdminData();
-}
-
-
-/* ================================
-   CONTACT
-================================ */
-
-$("#contactForm").onsubmit=
-async e=>{
-
-e.preventDefault();
-
-const name=
-$("#contactName").value.trim();
-
-const email=
-$("#contactEmail").value.trim();
-
-const message=
-$("#contactMessage").value.trim();
-
-const result=
-await db
-.from("contact_messages")
-.insert({
-name,
-email,
-message
-});
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-$("#contactForm").reset();
-
-toast("Message sent successfully! 🎉");
-};
-
-
-/* ================================
-   ADMIN MESSAGES
-================================ */
-
-function renderAdminMessages(){
-
-const list=$("#adminMessagesList");
-
-if(!messages.length){
-
-list.innerHTML=
-`<div class="empty">No messages.</div>`;
-
-return;
-}
-
-list.innerHTML=
-messages.map(m=>`
-
-<div class="admin-item">
-
-<div>
-
-<strong>
-${escapeHTML(m.name)}
-</strong>
-
-<p>
-${escapeHTML(m.email||"No email")}
-</p>
-
-<p>
-${escapeHTML(m.message)}
-</p>
-
-<small>
-${m.created_at?
-new Date(m.created_at).toLocaleString():
-""}
-</small>
-
-</div>
-
-<div class="admin-actions">
-
-<button
-class="btn danger small"
-onclick="deleteMessage(${m.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-}
-
-async function deleteMessage(id){
-
-if(!isAdmin)return;
-
-if(!confirm("Delete this message?"))
-return;
-
-const result=
-await db
-.from("contact_messages")
-.delete()
-.eq("id",id);
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-toast("Message deleted.");
-
-await loadAdminData();
-}
-
-
-/* ================================
-   LOGIN
-================================ */
-
-$("#loginForm").onsubmit=
-async e=>{
-
-e.preventDefault();
-
-const email=
-$("#loginEmail").value.trim();
-
-const password=
-$("#loginPassword").value;
-
-const result=
-await db.auth.signInWithPassword({
-
-email,
-password
-
-});
-
-if(result.error){
-
-toast(result.error.message);
-
-return;
-}
-
-const admin=
-await checkAdmin();
-
-if(!admin){
-
-await db.auth.signOut();
-
-toast(
-"This account is not an admin."
-);
-
-return;
-}
-
-$("#loginBox")
-.classList.add("hidden");
-
-$("#dashboard")
-.classList.remove("hidden");
-
-await loadAdminData();
-
-toast(
-"Admin login successful! 🎉"
-);
-};
-
-
-/* ================================
-   LOGOUT
-================================ */
-
-$("#logoutBtn").onclick=
-async()=>{
-
-await db.auth.signOut();
-
-isAdmin=false;
-
-$("#dashboard")
-.classList.add("hidden");
-
-$("#loginBox")
-.classList.remove("hidden");
-
-toast("Logged out.");
-};
-
-
-/* ================================
-   ADMIN TABS
-================================ */
-
-document
-.querySelectorAll(".tab[data-tab]")
-.forEach(btn=>{
-
-btn.onclick=()=>{
-
-document
-.querySelectorAll(".tab[data-tab]")
-.forEach(x=>
-x.classList.remove("active")
-);
-
-document
-.querySelectorAll(".panel")
-.forEach(x=>
-x.classList.remove("active")
-);
-
-btn.classList.add("active");
-
-$("#"+btn.dataset.tab)
-.classList.add("active");
-
-};
-
-});
-
-
-/* ================================
-   GITHUB
-================================ */
-
-async function loadGithub(username){
-
-if(!username){
-
-$("#githubRepos").innerHTML=
-`<div class="empty">
-Enter GitHub username.
-</div>`;
-
-return;
-}
-
-$("#githubRepos").innerHTML=
-`<div class="empty">
-Loading repositories...
-</div>`;
-
-try{
-
-const response=
-await fetch(
-"https://api.github.com/users/"
-+encodeURIComponent(username)
-+"/repos?sort=updated&per_page=9"
-);
-
-if(!response.ok)
-throw new Error("GitHub user not found.");
-
-const repos=await response.json();
-
-if(!repos.length){
-
-$("#githubRepos").innerHTML=
-`<div class="empty">
-No repositories found.
-</div>`;
-
-return;
-}
-
-$("#githubRepos").innerHTML=
-repos.map(r=>`
-
-<article class="card">
-
-<h3>
-${escapeHTML(r.name)}
-</h3>
-
-<p>
-${escapeHTML(
-r.description||
-"No description."
-)}
-</p>
-
-<p>
-⭐ ${r.stargazers_count}
-&nbsp;
-🍴 ${r.forks_count}
-</p>
-
-<a
-href="${escapeHTML(r.html_url)}"
-target="_blank"
-rel="noopener"
-class="btn primary small">
-View on GitHub
-</a>
-
-</article>
-
-`).join("");
-
-}catch(err){
-
-$("#githubRepos").innerHTML=
-`<div class="empty">
-${escapeHTML(err.message)}
-</div>`;
-}
-}
-
-$("#githubBtn").onclick=()=>{
-
-const username=
-$("#githubUsername").value.trim();
-
-if(!username){
-
-toast("Enter GitHub username.");
-
-return;
-}
-
-localStorage.setItem(
-"githubUsername",
-username
-);
-
-loadGithub(username);
-};
-
-
-/* ================================
-   INIT
-================================ */
-
-async function init(){
-
-$("#year").textContent=
-new Date().getFullYear();
-
-const savedGithub=
-localStorage.getItem(
-"githubUsername"
-)||"";
-
-$("#githubUsername").value=
-savedGithub;
-
-await loadPublicData();
-
-if(savedGithub)
-loadGithub(savedGithub);
-
-const session=
-await db.auth.getSession();
-
-if(session.data.session){
-
-const admin=
-await checkAdmin();
-
-if(admin){
-
-$("#loginBox")
-.classList.add("hidden");
-
-$("#dashboard")
-.classList.remove("hidden");
-
-await loadAdminData();
-
-}
-
-}
-
-}
-
-init();
-
-
-/* ================================
-   SERVICE WORKER
-================================ */
-
-if("serviceWorker" in navigator){
-
-window.addEventListener(
-"load",
-()=>{
-
-navigator.serviceWorker
-.register("./sw.js")
-.catch(err=>
-console.warn(
-"Service Worker:",
-err
-)
-);
-
-});
-
-}
+  if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+      navigator.serviceWorker
+        .register("./sw.js")
+        .then(() => {
+          console.log("PWA Service Worker registered");
+        })
+        .catch((error) => {
+          console.log(
+            "Service Worker error:",
+            error
+          );
+        });
+
+    });
+
+  }
 
 </script>
 
 </body>
-  </html>
+    </html>
