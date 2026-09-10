@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Yusuf Kedir - Professional Web Developer, Programmer and Technology Enthusiast"
+  >
+
+  <meta name="theme-color" content="#2563eb">
+
+  <title>Yusuf Kedir | Portfolio</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <style>
+    /* ================================
+       RESET
+    ================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
+      --accent: #06b6d4;
+
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+
+      --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+      --radius: 18px;
+    }
+
+    body.dark {
+      --bg: #020617;
+      --card: #0f172a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #1e293b;
+
+      --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* ================================
+       NAVBAR
+    ================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.dark header {
+      background: rgba(2, 6, 23, 0.9);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* ================================
+       HERO
+    ================================= */
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      place-items: center;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 20px;
+      font-weight: 800;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-circle {
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary),
+          var(--accent)
+        );
+      padding: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--card);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .profile-inner strong {
+      font-size: 4rem;
+      color: var(--primary);
+    }
+
+    /* ================================
+       SECTIONS
+    ================================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* ================================
+       ABOUT
+    ================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    /* ================================
+       SKILLS
+    ================================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .skill {
+      text-align: center;
+      padding: 25px 15px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .skill h3 {
+      font-size: 1rem;
+    }
+
+    /* ================================
+       PROJECTS
+    ================================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-image {
+      height: 190px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 4rem;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-content p {
+      margin: 10px 0 18px;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* ================================
+       BLOG
+    ================================= */
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .blog-date {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ================================
+       GALLERY
+    ================================= */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+      color: white;
+    }
+
+    /* ================================
+       GITHUB
+    ================================= */
+
+    .github-box {
+      text-align: center;
+      padding: 50px 25px;
+    }
+
+    .github-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .github-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* ================================
+       CONTACT
+    ================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-item {
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-group label {
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      outline: none;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+    }
+
+    /* ================================
+       SOCIAL
+    ================================= */
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .social {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      font-weight: 700;
+    }
+
+    .social:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* ================================
+       ADMIN
+    ================================= */
+
+    .admin-section {
+      display: none;
+    }
+
+    .admin-box {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+    }
+
+    footer strong {
+      color: var(--primary);
+    }
+
+    /* ================================
+       TOAST
+    ================================= */
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 5000;
+      background: var(--text);
+      color: var(--bg);
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transform: translateY(120px);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .profile-circle {
+        width: 250px;
+        height: 250px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      section {
+        padding: 65px 0;
+      }
+
+      .navbar {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        top: 64px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0;
+      }
+
+      .profile-circle {
+        width: 210px;
+        height: 210px;
+      }
+
+      .profile-inner strong {
+        font-size: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-buttons {
+        width: 100%;
+      }
+
+      .toast {
+        left: 15px;
+        right: 15px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================
+       NAVBAR
+  ================================= -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="#home" class="logo">
+        YKD<span>.</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+
+          <li>
+            <a href="#home">Home</a>
+          </li>
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+
+          <li>
+            <a href="#blog">Blog</a>
+          </li>
+
+          <li>
+            <a href="#gallery">Gallery</a>
+          </li>
+
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          aria-label="Toggle theme"
+        >
+          🌙
+        </button>
+
+        <button
+          class="icon-btn menu-btn"
+          id="menuBtn"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================================
+       HOME
+  ================================= -->
+
+  <main>
+
+    <section id="home" class="hero">
+
+      <div class="container hero-content">
+
+        <div>
+
+          <span class="badge">
+            👋 Welcome to my portfolio
+          </span>
+
+          <h1>
+            I'm
+            <span>Yusuf Kedir</span>
+          </h1>
+
+          <p>
+            Web Developer, Programmer and Technology
+            Enthusiast. I create modern, responsive and
+            user-friendly digital experiences.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#projects"
+              class="btn btn-primary"
+            >
+              🚀 View My Projects
+            </a>
+
+            <a
+              href="#contact"
+              class="btn btn-outline"
+            >
+              📩 Contact Me
+            </a>
+
+          </div>
+
+          <div class="socials">
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="social"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              class="social"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="https://wa.me/"
+              target="_blank"
+              class="social"
+            >
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="profile-circle">
+
+            <div class="profile-inner">
+
+              <strong>YK</strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         ABOUT
+    ================================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>About Me</h2>
+
+          <p>
+            Learn more about me and what I do.
+          </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+          <div class="card">
+
+            <h3>👨‍💻 Who I Am</h3>
+
+            <p>
+              I'm Yusuf Kedir, a passionate developer
+              interested in web development, programming,
+              modern technologies and digital innovation.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>🎯 My Goal</h3>
+
+            <p>
+              My goal is to build useful, secure,
+              beautiful and accessible applications
+              that solve real-world problems.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>💡 What I Love</h3>
+
+            <p>
+              I enjoy learning new technologies,
+              creating websites, developing applications
+              and turning ideas into working projects.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>🌍 My Vision</h3>
+
+            <p>
+              To continuously improve my technical skills
+              and become a professional software and
+              web developer.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         SKILLS
+    ================================= -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>My Skills</h2>
+
+          <p>
+            Technologies and tools I work with.
+          </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+          <div class="skill">
+            <div class="skill-icon">🌐</div>
+            <h3>HTML</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🎨</div>
+            <h3>CSS</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">⚡</div>
+            <h3>JavaScript</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🐍</div>
+            <h3>Python</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">⚙️</div>
+            <h3>C++</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">☕</div>
+            <h3>Java</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">📱</div>
+            <h3>PWA</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🗄️</div>
+            <h3>Database</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🐙</div>
+            <h3>GitHub</h3>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">▲</div>
+            <h3>Vercel</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         PROJECTS
+    ================================= -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>My Projects</h2>
+
+          <p>
+            Some of my latest work.
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+          <article class="card project">
+
+            <div class="project-image">
+              🛒
+            </div>
+
+            <div class="project-content">
+
+              <h3>Online Shopping</h3>
+
+              <p>
+                A modern online shopping platform for
+                products, deals and marketplace features.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  HTML
+                </span>
+
+                <span class="tag">
+                  CSS
+                </span>
+
+                <span class="tag">
+                  JavaScript
+                </span>
+
+              </div>
+
+              <a
+                href="https://online-shopping-gilt-rho.vercel.app/"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                View Project
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card project">
+
+            <div class="project-image">
+              🧮
+            </div>
+
+            <div class="project-content">
+
+              <h3>Scientific Calculator</h3>
+
+              <p>
+                A responsive calculator with scientific
+                functions, keyboard support and dark mode.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  HTML
+                </span>
+
+                <span class="tag">
+                  CSS
+                </span>
+
+                <span class="tag">
+                  JavaScript
+                </span>
+
+                <span class="tag">
+                  PWA
+                </span>
+
+              </div>
+
+              <a
+                href="https://calculator-delta-brown-91.vercel.app/"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                View Project
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card project">
+
+            <div class="project-image">
+              🕌
+            </div>
+
+            <div class="project-content">
+
+              <h3>Masjida Tawbaa</h3>
+
+              <p>
+                A modern community and student management
+                website for Jama'aa Barattoota Masjiida Tawbaa.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  HTML
+                </span>
+
+                <span class="tag">
+                  JavaScript
+                </span>
+
+                <span class="tag">
+                  Supabase
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="btn btn-primary"
+                onclick="showToast('Project link will be added soon.')"
+              >
+                Coming Soon
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card project">
+
+            <div class="project-image">
+              🚗
+            </div>
+
+            <div class="project-content">
+
+              <h3>FEYA Import & Trading</h3>
+
+              <p>
+                Business website for importing vehicles
+                and construction materials.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  Business
+                </span>
+
+                <span class="tag">
+                  PWA
+                </span>
+
+                <span class="tag">
+                  Responsive
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="btn btn-primary"
+                onclick="showToast('Project link will be added soon.')"
+              >
+                Coming Soon
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         BLOG
+    ================================= -->
+
+    <section id="blog">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>My Blog</h2>
+
+          <p>
+            Thoughts, tutorials and technology.
+          </p>
+
+        </div>
+
+
+        <div class="blog-grid">
+
+
+          <article class="card">
+
+            <div class="blog-date">
+              Technology
+            </div>
+
+            <h3>
+              Why I Love Web Development
+            </h3>
+
+            <p>
+              Web development allows me to transform
+              ideas into useful digital experiences.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="blog-date">
+              Programming
+            </div>
+
+            <h3>
+              My Programming Journey
+            </h3>
+
+            <p>
+              Learning HTML, CSS, JavaScript, Python,
+              C++ and Java step by step.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="blog-date">
+              PWA
+            </div>
+
+            <h3>
+              Building Modern PWAs
+            </h3>
+
+            <p>
+              Progressive Web Apps combine the power
+              of websites with app-like experiences.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         GALLERY
+    ================================= -->
+
+    <section id="gallery">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>My Gallery</h2>
+
+          <p>
+            Personal photos and project images.
+          </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              📸
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              💻
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              🚀
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              🌍
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         GITHUB
+    ================================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="card github-box">
+
+          <h2>🐙 GitHub</h2>
+
+          <p>
+            Explore my source code, projects and
+            programming activities on GitHub.
+          </p>
+
+          <a
+            href="https://github.com/"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            Visit GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         CONTACT
+    ================================= -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Contact Me</h2>
+
+          <p>
+            Let's connect and build something great.
+          </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+
+              <strong>📧 Email</strong>
+
+              <span>
+                yusufkedir@example.com
+              </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <strong>📱 Phone</strong>
+
+              <span>
+                +251 XXX XXX XXX
+              </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <strong>📍 Location</strong>
+
+              <span>
+                Ethiopia
+              </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <strong>💬 WhatsApp</strong>
+
+              <span>
+                Available for contact
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="card">
+
+            <form
+              id="contactForm"
+              class="contact-form"
+            >
+
+              <div class="form-group">
+
+                <label for="name">
+                  Your Name
+                </label>
+
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="email">
+                  Your Email
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="message">
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  placeholder="Write your message..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                📩 Send Message
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         ADMIN
+    ================================= -->
+
+    <section
+      id="admin"
+      class="admin-section"
+    >
+
+      <div class="container">
+
+        <div class="card admin-box">
+
+          <div class="section-title">
+
+            <h2>Admin</h2>
+
+            <p>
+              Administration area.
+            </p>
+
+          </div>
+
+          <form id="adminForm">
+
+            <div class="form-group">
+
+              <label>
+                Email
+              </label>
+
+              <input
+                type="email"
+                id="adminEmail"
+                required
+              >
+
+            </div>
+
+            <br>
+
+            <div class="form-group">
+
+              <label>
+                Password
+              </label>
+
+              <input
+                type="password"
+                id="adminPassword"
+                required
+              >
+
+            </div>
+
+            <br>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Login
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © <span id="year"></span>
+        <strong>Yusuf Kedir</strong>.
+        All Rights Reserved.
+      </p>
+
+      <p>
+        Developed by
+        <strong>
+          Yusuf Kedir Dadi
+        </strong>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- TOAST -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+
+  <script>
+
+    /* ================================
+       YEAR
+    ================================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* ================================
+       MOBILE MENU
+    ================================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("active");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("active");
+
+        });
+
+      });
+
+
+    /* ================================
+       DARK MODE
+    ================================= */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+
+    const savedTheme =
+      localStorage.getItem("theme");
+
+
+    if (savedTheme === "dark") {
+
+      document.body.classList.add("dark");
+
+      themeBtn.textContent = "☀️";
+
+    }
+
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark");
+
+      const dark =
+        document.body.classList.contains("dark");
+
+
+      localStorage.setItem(
+        "theme",
+        dark ? "dark" : "light"
+      );
+
+
+      themeBtn.textContent =
+        dark ? "☀️" : "🌙";
+
+    });
+
+
+    /* ================================
+       TOAST
+    ================================= */
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+
+      setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 3000);
+
+    }
+
+
+    /* ================================
+       CONTACT FORM
+    ================================= */
+
+    const contactForm =
+      document.getElementById("contactForm");
+
+
+    contactForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value;
+
+        showToast(
+          `Thank you ${name}! Your message has been received.`
+        );
+
+        contactForm.reset();
+
+      }
+    );
+
+
+    /* ================================
+       ADMIN FORM
+    ================================= */
+
+    const adminForm =
+      document.getElementById("adminForm");
+
+
+    adminForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        showToast(
+          "Supabase authentication will be connected in the next step."
+        );
+
+      }
+    );
+
+
+    /* ================================
+       PWA SERVICE WORKER
+    ================================= */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .then(() => {
+
+              console.log(
+                "Service Worker registered."
+              );
+
+            })
+            .catch(error => {
+
+              console.log(
+                "Service Worker error:",
+                error
+              );
+
+            });
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
