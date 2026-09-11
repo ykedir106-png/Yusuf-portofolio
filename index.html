@@ -57,18 +57,19 @@ button{
   margin:auto;
 }
 
-/* NAV */
+/* ================= NAV ================= */
+
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid #e2e8f0;
 }
 
 .dark header{
-  background:rgba(2,6,23,.92);
+  background:rgba(2,6,23,.94);
   border-color:#1e293b;
 }
 
@@ -89,7 +90,7 @@ header{
 .nav-links{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:20px;
 }
 
 .nav-links a{
@@ -104,7 +105,7 @@ header{
 .nav-actions{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:7px;
 }
 
 .icon-btn{
@@ -118,17 +119,23 @@ header{
   display:none;
 }
 
-/* HERO */
+#lang{
+  width:auto;
+  padding:7px 9px;
+}
+
+/* ================= HERO ================= */
+
 .hero{
   min-height:90vh;
   display:flex;
   align-items:center;
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(37,99,235,.18),
-      transparent 35%
-    );
+  radial-gradient(
+    circle at top right,
+    rgba(37,99,235,.18),
+    transparent 35%
+  );
 }
 
 .hero-grid{
@@ -216,7 +223,8 @@ header{
   font-size:13px;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
+
 .profile-wrap{
   display:flex;
   justify-content:center;
@@ -251,7 +259,8 @@ header{
   display:block;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
+
 section{
   padding:90px 0;
 }
@@ -274,7 +283,8 @@ section{
   color:#94a3b8;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -295,7 +305,8 @@ section{
   box-shadow:none;
 }
 
-/* SKILLS */
+/* ================= SKILLS ================= */
+
 .skills{
   display:flex;
   flex-wrap:wrap;
@@ -304,6 +315,7 @@ section{
 }
 
 .skill{
+  display:inline-block;
   padding:10px 16px;
   border-radius:999px;
   background:#dbeafe;
@@ -316,7 +328,8 @@ section{
   color:#bfdbfe;
 }
 
-/* PROJECT */
+/* ================= PROJECTS ================= */
+
 .project-image,
 .post-image{
   width:100%;
@@ -337,7 +350,15 @@ section{
   color:#94a3b8;
 }
 
-/* GALLERY */
+.project-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+/* ================= GALLERY ================= */
+
 .gallery{
   columns:3 250px;
   column-gap:18px;
@@ -353,9 +374,20 @@ section{
   display:block;
   border-radius:15px;
   cursor:pointer;
+  transition:.25s;
 }
 
-/* GITHUB */
+.gallery-item img:hover{
+  transform:scale(1.02);
+}
+
+.gallery-caption{
+  padding:7px 3px;
+  font-weight:700;
+}
+
+/* ================= GITHUB ================= */
+
 .github-box{
   text-align:center;
 }
@@ -378,7 +410,8 @@ section{
   margin-top:25px;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
+
 .contact-grid{
   display:grid;
   grid-template-columns:.8fr 1.2fr;
@@ -417,6 +450,12 @@ select{
   outline:none;
 }
 
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#2563eb;
+}
+
 .dark input,
 .dark textarea,
 .dark select{
@@ -430,7 +469,8 @@ textarea{
   resize:vertical;
 }
 
-/* ADMIN */
+/* ================= ADMIN ================= */
+
 .admin-section{
   background:#f1f5f9;
 }
@@ -531,6 +571,7 @@ textarea{
   display:flex;
   gap:7px;
   align-items:flex-start;
+  flex-wrap:wrap;
 }
 
 .empty{
@@ -543,7 +584,21 @@ textarea{
   display:none!important;
 }
 
-/* MODAL */
+.status{
+  padding:12px;
+  border-radius:10px;
+  background:#eff6ff;
+  color:#1e40af;
+  margin-bottom:15px;
+  display:none;
+}
+
+.status.show{
+  display:block;
+}
+
+/* ================= MODAL ================= */
+
 .modal{
   position:fixed;
   inset:0;
@@ -579,7 +634,8 @@ textarea{
   font-size:25px;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
+
 .toast{
   position:fixed;
   left:50%;
@@ -592,6 +648,8 @@ textarea{
   border-radius:10px;
   transition:.3s;
   z-index:5000;
+  max-width:90%;
+  text-align:center;
 }
 
 .toast.show{
@@ -599,7 +657,8 @@ textarea{
   transform:translate(-50%,0);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 footer{
   text-align:center;
   padding:35px 0;
@@ -612,7 +671,8 @@ footer{
   color:#94a3b8;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media(max-width:900px){
 
   .nav-links{
@@ -694,46 +754,77 @@ footer{
   .admin-item{
     flex-direction:column;
   }
+
+  .nav-actions{
+    gap:2px;
+  }
+
+  #lang{
+    max-width:105px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+
 <div class="container navbar">
 
 <a class="logo" href="#home">YKD.</a>
 
 <nav id="navLinks" class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#blog">Blog</a>
-<a href="#gallery">Gallery</a>
+
+<a href="#home" data-i18n="home">Home</a>
+<a href="#about" data-i18n="about">About</a>
+<a href="#skills" data-i18n="skills">Skills</a>
+<a href="#projects" data-i18n="projects">Projects</a>
+<a href="#blog" data-i18n="blog">Blog</a>
+<a href="#gallery" data-i18n="gallery">Gallery</a>
 <a href="#github">GitHub</a>
-<a href="#contact">Contact</a>
+<a href="#contact" data-i18n="contact">Contact</a>
 <a href="#admin">Admin</a>
+
 </nav>
 
 <div class="nav-actions">
 
-<select id="lang">
+<select id="lang" aria-label="Language">
+
 <option value="en">English</option>
 <option value="om">Afaan Oromoo</option>
 <option value="am">አማርኛ</option>
+
 </select>
 
-<button id="themeBtn" class="icon-btn">🌙</button>
-<button id="menuBtn" class="icon-btn menu-btn">☰</button>
+<button
+id="themeBtn"
+class="icon-btn"
+type="button">
+🌙
+</button>
+
+<button
+id="menuBtn"
+class="icon-btn menu-btn"
+type="button">
+☰
+</button>
 
 </div>
+
 </div>
+
 </header>
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
+
 <section id="home" class="hero">
+
 <div class="container hero-grid">
 
 <div>
@@ -742,7 +833,9 @@ footer{
 
 <h1>
 I'm
-<span class="gradient">Yusuf Kedir</span>
+<span class="gradient">
+Yusuf Kedir
+</span>
 </h1>
 
 <p class="hero-text">
@@ -751,135 +844,238 @@ I build modern websites, web applications and digital experiences.
 </p>
 
 <div class="buttons">
-<a href="#projects" class="btn primary">
+
+<a
+href="#projects"
+class="btn primary">
 View Projects
 </a>
 
-<a href="#contact" class="btn secondary">
+<a
+href="#contact"
+class="btn secondary">
 Contact Me
 </a>
+
 </div>
 
 </div>
+
 
 <div class="profile-wrap">
+
 <div class="profile">
+
 <div class="profile-inner">
 
 <img
 src="./icons/icon-512.png"
-alt="Yusuf Kedir"
->
+alt="Yusuf Kedir">
 
-</div>
-</div>
 </div>
 
 </div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- ABOUT -->
+
+<!-- ================= ABOUT ================= -->
+
 <section id="about">
+
 <div class="container">
 
 <div class="title">
+
 <h2>About Me</h2>
-<p>Building digital ideas into useful products.</p>
+
+<p>
+Building digital ideas into useful products.
+</p>
+
 </div>
 
 <div class="grid">
 
 <div class="card">
+
 <h3>💻 Web Development</h3>
+
 <p>
 Responsive websites using HTML, CSS,
 JavaScript and modern technologies.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>🚀 Programming</h3>
+
 <p>
 Learning and building useful applications
 with different programming languages.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>📱 PWA Development</h3>
+
 <p>
 Installable, fast and mobile-friendly
 Progressive Web Applications.
 </p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
-<!-- SKILLS -->
+
+<!-- ================= SKILLS ================= -->
+
 <section id="skills">
+
 <div class="container">
 
 <div class="title">
+
 <h2>My Skills</h2>
-<p>Technologies I work and learn with.</p>
+
+<p>
+Technologies I work and learn with.
+</p>
+
 </div>
 
-<div id="skillsList" class="skills"></div>
+<div
+id="skillsList"
+class="skills">
+</div>
 
 </div>
+
 </section>
 
-<!-- PROJECTS -->
+
+<!-- ================= PROJECTS ================= -->
+
 <section id="projects">
+
 <div class="container">
 
 <div class="title">
+
 <h2>My Projects</h2>
-<p>My latest digital projects.</p>
+
+<p>
+My latest digital projects.
+</p>
+
 </div>
 
-<div id="projectsGrid" class="grid"></div>
+<div
+id="projectsGrid"
+class="grid">
+
+<div class="empty">
+Loading projects...
+</div>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- BLOG -->
+
+<!-- ================= BLOG ================= -->
+
 <section id="blog">
+
 <div class="container">
 
 <div class="title">
+
 <h2>Blog</h2>
-<p>Technology articles and ideas.</p>
+
+<p>
+Technology articles and ideas.
+</p>
+
 </div>
 
-<div id="postsGrid" class="grid"></div>
+<div
+id="postsGrid"
+class="grid">
+
+<div class="empty">
+Loading blog posts...
+</div>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- GALLERY -->
+
+<!-- ================= GALLERY ================= -->
+
 <section id="gallery">
+
 <div class="container">
 
 <div class="title">
+
 <h2>Gallery</h2>
-<p>Digital memories and photos.</p>
+
+<p>
+Digital memories and photos.
+</p>
+
 </div>
 
-<div id="galleryGrid" class="gallery"></div>
+<div
+id="galleryGrid"
+class="gallery">
+
+<div class="empty">
+Loading gallery...
+</div>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- GITHUB -->
+
+<!-- ================= GITHUB ================= -->
+
 <section id="github">
+
 <div class="container">
 
 <div class="title">
+
 <h2>GitHub</h2>
-<p>Explore open-source repositories.</p>
+
+<p>
+Explore open-source repositories.
+</p>
+
 </div>
 
 <div class="card github-box">
@@ -888,82 +1084,126 @@ Progressive Web Applications.
 
 <input
 id="githubUsername"
-placeholder="GitHub username"
->
+placeholder="GitHub username">
 
 <button
 id="githubBtn"
 class="btn primary"
->
+type="button">
+
 Load
+
 </button>
 
 </div>
 
-<div id="githubRepos" class="github-grid"></div>
-
+<div
+id="githubRepos"
+class="github-grid">
 </div>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- CONTACT -->
+
+<!-- ================= CONTACT ================= -->
+
 <section id="contact">
+
 <div class="container">
 
 <div class="title">
+
 <h2>Contact Me</h2>
-<p>Let's build something great together.</p>
+
+<p>
+Let's build something great together.
+</p>
+
 </div>
 
+
 <div class="contact-grid">
+
 
 <div class="contact-info">
 
 <div class="contact-item">
+
 <strong>📧 Email</strong>
-<p>ykedir106@gmail.com</p>
+
+<p>
+ykedir106@gmail.com
+</p>
+
 </div>
 
+
 <div class="contact-item">
+
 <strong>💬 WhatsApp</strong>
-<p>Available for communication.</p>
+
+<p>
++251925702779
+</p>
+
+<a
+href="https://wa.me/251925702779"
+target="_blank"
+rel="noopener"
+class="btn primary small">
+
+WhatsApp
+
+</a>
+
 </div>
+
 
 <div class="contact-item">
+
 <strong>🌍 Location</strong>
-<p>Ethiopia</p>
+
+<p>
+Chiro, Ethiopia
+</p>
+
 </div>
 
 </div>
+
 
 <div class="card">
 
-<form id="contactForm" class="form">
+<form
+id="contactForm"
+class="form">
 
 <input
 id="contactName"
 placeholder="Your name"
-required
->
+required>
 
 <input
 id="contactEmail"
 type="email"
-placeholder="Your email"
->
+placeholder="Your email">
 
 <textarea
 id="contactMessage"
 placeholder="Your message"
-required
-></textarea>
+required>
+</textarea>
 
 <button
 class="btn primary"
-type="submit"
->
+type="submit">
+
 Send Message
+
 </button>
 
 </form>
@@ -971,266 +1211,446 @@ Send Message
 </div>
 
 </div>
+
 </div>
+
 </section>
 
-<!-- ADMIN -->
+
+<!-- ================= ADMIN ================= -->
+
 <section id="admin" class="admin-section">
+
 <div class="container">
 
+
 <!-- LOGIN -->
-<div id="loginBox" class="login-box card">
+
+<div
+id="loginBox"
+class="login-box card">
 
 <div class="title">
+
 <h2>🔐 Admin Login</h2>
-<p>Authorized administrators only.</p>
+
+<p>
+Authorized administrators only.
+</p>
+
 </div>
 
-<form id="loginForm" class="form">
+<form
+id="loginForm"
+class="form">
 
 <input
 id="loginEmail"
 type="email"
 placeholder="Admin email"
-required
->
+required>
 
 <input
 id="loginPassword"
 type="password"
 placeholder="Password"
-required
->
+required>
 
-<button class="btn primary" type="submit">
+<button
+class="btn primary"
+type="submit">
+
 Login
+
 </button>
 
 </form>
 
 </div>
 
+
 <!-- DASHBOARD -->
-<div id="dashboard" class="dashboard hidden">
+
+<div
+id="dashboard"
+class="dashboard hidden">
+
 
 <div>
-<h2>⚡ Admin Dashboard</h2>
-<p>Manage your digital portfolio.</p>
+
+<h2>
+⚡ Admin Dashboard
+</h2>
+
+<p>
+Manage your digital portfolio.
+</p>
+
 </div>
+
+
+<!-- STATS -->
 
 <div class="stats">
 
 <div class="stat">
-<strong id="statProjects">0</strong>
+
+<strong id="statProjects">
+0
+</strong>
+
 Projects
+
 </div>
 
+
 <div class="stat">
-<strong id="statPosts">0</strong>
+
+<strong id="statPosts">
+0
+</strong>
+
 Blog Posts
+
 </div>
 
+
 <div class="stat">
-<strong id="statGallery">0</strong>
+
+<strong id="statGallery">
+0
+</strong>
+
 Gallery
+
 </div>
+
 
 <div class="stat">
-<strong id="statMessages">0</strong>
+
+<strong id="statMessages">
+0
+</strong>
+
 Messages
+
 </div>
 
 </div>
+
+
+<!-- TABS -->
 
 <div class="tabs">
 
-<button class="tab active" data-tab="projectsAdmin">
+<button
+class="tab active"
+data-tab="projectsAdmin"
+type="button">
+
 Projects
+
 </button>
 
-<button class="tab" data-tab="postsAdmin">
+
+<button
+class="tab"
+data-tab="postsAdmin"
+type="button">
+
 Blog
+
 </button>
 
-<button class="tab" data-tab="galleryAdmin">
+
+<button
+class="tab"
+data-tab="galleryAdmin"
+type="button">
+
 Gallery
+
 </button>
 
-<button class="tab" data-tab="messagesAdmin">
+
+<button
+class="tab"
+data-tab="messagesAdmin"
+type="button">
+
 Messages
+
 </button>
 
-<button id="logoutBtn" class="tab">
+
+<button
+id="logoutBtn"
+class="tab"
+type="button">
+
 Logout
+
 </button>
 
 </div>
 
-<!-- PROJECT PANEL -->
-<div id="projectsAdmin" class="panel active card">
 
-<h3>Add / Edit Project</h3>
+<!-- ================= PROJECT ADMIN ================= -->
+
+<div
+id="projectsAdmin"
+class="panel active card">
+
+<h3>
+➕ Add / Edit Project
+</h3>
+
 <br>
 
-<form id="projectForm" class="form">
+<form
+id="projectForm"
+class="form">
 
-<input id="projectId" type="hidden">
+<input
+id="projectId"
+type="hidden">
+
 
 <input
 id="projectTitle"
 placeholder="Project title"
-required
->
+required>
+
 
 <textarea
 id="projectDescription"
-placeholder="Project description"
-></textarea>
+placeholder="Project description">
+</textarea>
+
 
 <input
 id="projectImage"
-placeholder="Image URL"
->
+placeholder="Image URL">
+
 
 <input
 id="projectLink"
-placeholder="Project URL"
->
+placeholder="Project URL">
+
 
 <input
-id="projectCategory"
-placeholder="Category"
->
+id="projectGithub"
+placeholder="GitHub URL">
+
+
+<input
+id="projectTechnologies"
+placeholder="Technologies e.g. HTML, CSS, JavaScript">
+
 
 <div class="buttons">
 
-<button class="btn primary" type="submit">
+<button
+class="btn primary"
+type="submit">
+
 Save Project
+
 </button>
+
 
 <button
 id="projectCancel"
 class="btn secondary"
-type="button"
->
+type="button">
+
 Cancel
+
 </button>
 
 </div>
 
 </form>
 
-<div id="adminProjectsList" class="admin-list"></div>
+
+<div
+id="adminProjectsList"
+class="admin-list">
+</div>
 
 </div>
 
-<!-- BLOG PANEL -->
-<div id="postsAdmin" class="panel card">
 
-<h3>Add / Edit Blog</h3>
+<!-- ================= BLOG ADMIN ================= -->
+
+<div
+id="postsAdmin"
+class="panel card">
+
+<h3>
+📝 Add / Edit Blog
+</h3>
+
 <br>
 
-<form id="postForm" class="form">
+<form
+id="postForm"
+class="form">
 
-<input id="postId" type="hidden">
+<input
+id="postId"
+type="hidden">
+
 
 <input
 id="postTitle"
 placeholder="Post title"
-required
->
+required>
+
 
 <input
 id="postCategory"
-placeholder="Category"
->
+placeholder="Category">
+
 
 <input
 id="postImage"
-placeholder="Image URL"
->
+placeholder="Image URL">
+
 
 <textarea
 id="postExcerpt"
-placeholder="Short excerpt"
-></textarea>
+placeholder="Short excerpt">
+</textarea>
+
 
 <textarea
 id="postContent"
-placeholder="Full article"
-></textarea>
+placeholder="Full article">
+</textarea>
+
 
 <div class="buttons">
 
-<button class="btn primary" type="submit">
+<button
+class="btn primary"
+type="submit">
+
 Save Post
+
 </button>
+
 
 <button
 id="postCancel"
 class="btn secondary"
-type="button"
->
+type="button">
+
 Cancel
+
 </button>
 
 </div>
 
 </form>
 
-<div id="adminPostsList" class="admin-list"></div>
+
+<div
+id="adminPostsList"
+class="admin-list">
+</div>
 
 </div>
 
-<!-- GALLERY PANEL -->
-<div id="galleryAdmin" class="panel card">
 
-<h3>🖼️ Gallery Upload</h3>
+<!-- ================= GALLERY ADMIN ================= -->
+
+<div
+id="galleryAdmin"
+class="panel card">
+
+<h3>
+🖼️ Gallery Upload
+</h3>
+
 <br>
 
-<form id="galleryForm" class="form">
+<form
+id="galleryForm"
+class="form">
 
 <input
 id="galleryTitle"
-placeholder="Photo title"
->
+placeholder="Photo title (optional)">
+
 
 <input
 id="galleryFiles"
 type="file"
 accept="image/*"
 multiple
-required
->
+required>
 
-<button class="btn primary" type="submit">
+
+<button
+class="btn primary"
+type="submit">
+
 Upload Images
+
 </button>
 
 </form>
 
-<div id="adminGalleryList" class="admin-list"></div>
+
+<p
+id="uploadStatus"
+class="status">
+</p>
+
+
+<div
+id="adminGalleryList"
+class="admin-list">
+</div>
 
 </div>
 
-<!-- MESSAGE PANEL -->
-<div id="messagesAdmin" class="panel card">
 
-<h3>📨 Contact Messages</h3>
+<!-- ================= MESSAGES ADMIN ================= -->
 
-<div id="adminMessagesList" class="admin-list"></div>
+<div
+id="messagesAdmin"
+class="panel card">
+
+<h3>
+📨 Contact Messages
+</h3>
+
+<div
+id="adminMessagesList"
+class="admin-list">
+</div>
+
+</div>
+
 
 </div>
 
 </div>
-</div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
 <div class="container">
 
 <p>
-© <span id="year"></span> Yusuf Kedir.
+© <span id="year"></span>
+Yusuf Kedir.
 All rights reserved.
 </p>
 
@@ -1239,31 +1659,50 @@ Developed by Yusuf Kedir
 </p>
 
 </div>
+
 </footer>
 
-<!-- IMAGE MODAL -->
-<div id="imageModal" class="modal">
+
+<!-- ================= IMAGE MODAL ================= -->
+
+<div
+id="imageModal"
+class="modal">
 
 <div class="modal-box">
 
-<button id="imageClose" class="close">×</button>
+<button
+id="imageClose"
+class="close"
+type="button">
+
+×
+
+</button>
 
 <img
 id="modalImage"
 style="width:100%;border-radius:12px"
-alt="Gallery image"
->
+alt="Gallery image">
 
 </div>
+
 </div>
 
-<div id="toast" class="toast"></div>
+
+<!-- ================= TOAST ================= -->
+
+<div
+id="toast"
+class="toast">
+</div>
+
 
 <script>
 
-/* ================================
+/* =====================================================
    SUPABASE
-================================ */
+===================================================== */
 
 const SUPABASE_URL =
 "https://uhusjizdjnloxjfbtgds.supabase.co";
@@ -1278,40 +1717,45 @@ SUPABASE_KEY
 );
 
 
-/* ================================
+/* =====================================================
    STATE
-================================ */
+===================================================== */
 
-let projects=[];
-let posts=[];
-let gallery=[];
-let messages=[];
-let isAdmin=false;
+let projects = [];
+let posts = [];
+let gallery = [];
+let messages = [];
+let isAdmin = false;
 
 
-/* ================================
-   HELPERS
-================================ */
+/* =====================================================
+   HELPER
+===================================================== */
 
-const $ = s => document.querySelector(s);
+const $ = selector =>
+document.querySelector(selector);
+
 
 function toast(message){
 
-const el=$("#toast");
+const el = $("#toast");
 
-el.textContent=message;
+el.textContent = message;
 
 el.classList.add("show");
 
 setTimeout(()=>{
 el.classList.remove("show");
-},3000);
+},3500);
 
 }
 
+
 function escapeHTML(value){
 
-if(value==null)return "";
+if(value === null || value === undefined){
+return "";
+}
 
 return String(value)
 .replaceAll("&","&amp;")
@@ -1319,465 +1763,807 @@ return String(value)
 .replaceAll(">","&gt;")
 .replaceAll('"',"&quot;")
 .replaceAll("'","&#039;");
+
 }
 
 
-/* ================================
+/* =====================================================
    SKILLS
-================================ */
+===================================================== */
 
-const skills=[
+const skills = [
+
 "HTML",
 "CSS",
 "JavaScript",
-"Java",
 "Python",
 "C++",
+"Java",
+"Android",
 "PWA",
 "Supabase",
 "Database",
 "GitHub",
 "Vercel",
 "Responsive Design"
+
 ];
 
-$("#skillsList").innerHTML=
-skills.map(x=>`
+$("#skillsList").innerHTML =
+skills.map(skill => `
 <span class="skill">
-${escapeHTML(x)}
+${escapeHTML(skill)}
 </span>
 `).join("");
 
 
-/* ================================
+/* =====================================================
    THEME
-================================ */
+===================================================== */
 
 function applyTheme(){
 
-const dark=
-localStorage.getItem("theme")==="dark";
+const dark =
+localStorage.getItem("theme") === "dark";
 
-document.body.classList.toggle("dark",dark);
+document.body.classList.toggle(
+"dark",
+dark
+);
 
-$("#themeBtn").textContent=
-dark?"☀️":"🌙";
+$("#themeBtn").textContent =
+dark ? "☀️" : "🌙";
+
 }
 
-$("#themeBtn").onclick=()=>{
+$("#themeBtn").onclick = () => {
 
-const dark=
+const dark =
 document.body.classList.toggle("dark");
 
 localStorage.setItem(
 "theme",
-dark?"dark":"light"
+dark ? "dark" : "light"
 );
 
-$("#themeBtn").textContent=
-dark?"☀️":"🌙";
+$("#themeBtn").textContent =
+dark ? "☀️" : "🌙";
+
 };
 
 applyTheme();
 
 
-/* ================================
+/* =====================================================
    MOBILE MENU
-================================ */
+===================================================== */
 
-$("#menuBtn").onclick=()=>{
-$("#navLinks").classList.toggle("show");
+$("#menuBtn").onclick = () => {
+
+$("#navLinks")
+.classList.toggle("show");
+
 };
 
-document.querySelectorAll("#navLinks a")
-.forEach(a=>{
-a.onclick=()=>{
-$("#navLinks").classList.remove("show");
+
+document
+.querySelectorAll("#navLinks a")
+.forEach(link => {
+
+link.onclick = () => {
+
+$("#navLinks")
+.classList.remove("show");
+
 };
+
 });
 
 
-/* ================================
+/* =====================================================
    PUBLIC DATA
-================================ */
+===================================================== */
 
 async function loadPublicData(){
 
-const results=await Promise.all([
+try{
 
-db.from("projects")
+const [
+
+projectsResult,
+postsResult,
+galleryResult
+
+] = await Promise.all([
+
+db
+.from("projects")
 .select("*")
 .order("created_at",{ascending:false}),
 
-db.from("posts")
+db
+.from("posts")
 .select("*")
 .order("created_at",{ascending:false}),
 
-db.from("gallery")
+db
+.from("gallery")
 .select("*")
 .order("created_at",{ascending:false})
 
 ]);
 
-if(results[0].error)
-console.error(results[0].error);
 
-if(results[1].error)
-console.error(results[1].error);
+if(projectsResult.error){
 
-if(results[2].error)
-console.error(results[2].error);
+console.error(
+"Projects:",
+projectsResult.error
+);
 
-projects=results[0].data||[];
-posts=results[1].data||[];
-gallery=results[2].data||[];
+}
+
+
+if(postsResult.error){
+
+console.error(
+"Posts:",
+postsResult.error
+);
+
+}
+
+
+if(galleryResult.error){
+
+console.error(
+"Gallery:",
+galleryResult.error
+);
+
+}
+
+
+projects =
+projectsResult.data || [];
+
+posts =
+postsResult.data || [];
+
+gallery =
+galleryResult.data || [];
+
 
 renderProjects();
 renderPosts();
 renderGallery();
+
+}catch(error){
+
+console.error(error);
+
+toast(
+"Error loading portfolio data."
+);
+
+}
+
 }
 
 
-/* ================================
-   PROJECTS
-================================ */
+/* =====================================================
+   PROJECTS PUBLIC
+===================================================== */
 
 function renderProjects(){
 
-const grid=$("#projectsGrid");
+const grid =
+$("#projectsGrid");
 
 if(!projects.length){
 
-grid.innerHTML=
-`<div class="empty">No projects yet.</div>`;
+grid.innerHTML = `
+<div class="empty">
+No projects yet.
+</div>
+`;
 
 return;
+
 }
 
-grid.innerHTML=
-projects.map(p=>`
+
+grid.innerHTML =
+projects.map(project => `
 
 <article class="card project-card">
 
-${p.image?`
+${
+project.image_url
+?
+`
 <img
 class="project-image"
-src="${escapeHTML(p.image)}"
-alt="${escapeHTML(p.title)}"
+src="${escapeHTML(project.image_url)}"
+alt="${escapeHTML(project.title)}"
 loading="lazy">
-`:""}
+`
+:
+""
+}
 
-<h3>${escapeHTML(p.title)}</h3>
+<h3>
+${escapeHTML(project.title)}
+</h3>
 
 <p>
-${escapeHTML(p.description||"")}
+${escapeHTML(project.description || "")}
 </p>
 
-<div class="buttons">
+<div class="project-meta">
 
-${p.link?`
+${
+project.project_url
+?
+`
 <a
-href="${escapeHTML(p.link)}"
+href="${escapeHTML(project.project_url)}"
 target="_blank"
 rel="noopener"
 class="btn primary small">
-View Project
-</a>
-`:""}
 
-${p.category?`
+View Project
+
+</a>
+`
+:
+""
+}
+
+
+${
+project.github_url
+?
+`
+<a
+href="${escapeHTML(project.github_url)}"
+target="_blank"
+rel="noopener"
+class="btn secondary small">
+
+GitHub
+
+</a>
+`
+:
+""
+}
+
+
+${
+project.technologies
+?
+`
 <span class="skill">
-${escapeHTML(p.category)}
+${escapeHTML(project.technologies)}
 </span>
-`:""}
+`
+:
+""
+}
 
 </div>
 
 </article>
 
 `).join("");
+
 }
 
 
-/* ================================
-   BLOG
-================================ */
+/* =====================================================
+   BLOG PUBLIC
+===================================================== */
 
 function renderPosts(){
 
-const grid=$("#postsGrid");
+const grid =
+$("#postsGrid");
 
 if(!posts.length){
 
-grid.innerHTML=
-`<div class="empty">No blog posts yet.</div>`;
+grid.innerHTML = `
+<div class="empty">
+No blog posts yet.
+</div>
+`;
 
 return;
+
 }
 
-grid.innerHTML=
-posts.map(p=>`
+
+grid.innerHTML =
+posts.map(post => `
 
 <article class="card post-card">
 
-${p.image?`
+${
+post.image_url
+?
+`
 <img
 class="post-image"
-src="${escapeHTML(p.image)}"
-alt="${escapeHTML(p.title)}"
+src="${escapeHTML(post.image_url)}"
+alt="${escapeHTML(post.title)}"
 loading="lazy">
-`:""}
+`
+:
+""
+}
 
-<h3>${escapeHTML(p.title)}</h3>
+<h3>
+${escapeHTML(post.title)}
+</h3>
+
+${
+post.category
+?
+`
+<span class="skill">
+${escapeHTML(post.category)}
+</span>
+`
+:
+""
+}
 
 <p>
 ${escapeHTML(
-p.excerpt||p.content||""
+post.excerpt ||
+post.content ||
+""
 )}
 </p>
 
-${p.content?`
+${
+post.content
+?
+`
 <button
 class="btn primary small"
-onclick="openPost(${p.id})">
+type="button"
+onclick="openPost(${post.id})">
+
 Read More
+
 </button>
-`:""}
+`
+:
+""
+}
 
 </article>
 
 `).join("");
+
 }
+
+
+/* =====================================================
+   BLOG MODAL
+===================================================== */
 
 function openPost(id){
 
-const p=
-posts.find(x=>String(x.id)===String(id));
+const post =
+posts.find(
+item =>
+String(item.id) === String(id)
+);
 
-if(!p)return;
+if(!post){
+return;
+}
 
-const modal=document.createElement("div");
 
-modal.className="modal show";
+const modal =
+document.createElement("div");
 
-modal.innerHTML=`
+modal.className =
+"modal show";
+
+
+modal.innerHTML = `
 
 <div class="modal-box">
 
 <button
 class="close"
+type="button"
 onclick="this.closest('.modal').remove()">
+
 ×
+
 </button>
 
-<h2>${escapeHTML(p.title)}</h2>
+<h2>
+${escapeHTML(post.title)}
+</h2>
 
 <br>
 
+${
+post.category
+?
+`
 <p>
-${escapeHTML(p.content||"")}
+<strong>
+${escapeHTML(post.category)}
+</strong>
+</p>
+`
+:
+""
+}
+
+<br>
+
+<p style="white-space:pre-wrap">
+
+${escapeHTML(
+post.content || ""
+)}
+
 </p>
 
 </div>
+
 `;
 
+
 document.body.appendChild(modal);
+
 }
 
 
-/* ================================
-   GALLERY
-================================ */
+/* =====================================================
+   GALLERY PUBLIC
+===================================================== */
 
 function renderGallery(){
 
-const grid=$("#galleryGrid");
+const grid =
+$("#galleryGrid");
 
 if(!gallery.length){
 
-grid.innerHTML=
-`<div class="empty">No gallery images yet.</div>`;
+grid.innerHTML = `
+<div class="empty">
+No gallery images yet.
+</div>
+`;
 
 return;
+
 }
 
-grid.innerHTML=
-gallery.map(g=>`
+
+grid.innerHTML =
+gallery.map(item => `
 
 <div class="gallery-item">
 
 <img
-src="${escapeHTML(g.image_url)}"
-alt="${escapeHTML(g.title||"Gallery")}"
+src="${escapeHTML(item.image_url)}"
+alt="${escapeHTML(item.title || "Gallery image")}"
 loading="lazy"
-onclick="openImage('${escapeHTML(g.image_url)}')"
->
+onclick="openImage('${escapeHTML(item.image_url)}')">
 
-${g.title?`
-<p>${escapeHTML(g.title)}</p>
-`:""}
+${
+item.title
+?
+`
+<div class="gallery-caption">
+${escapeHTML(item.title)}
+</div>
+`
+:
+""
+}
 
 </div>
 
 `).join("");
+
 }
+
+
+/* =====================================================
+   IMAGE MODAL
+===================================================== */
 
 function openImage(url){
 
-$("#modalImage").src=url;
+$("#modalImage").src = url;
 
 $("#imageModal")
 .classList.add("show");
+
 }
 
-$("#imageClose").onclick=()=>{
-$("#imageModal").classList.remove("show");
+
+$("#imageClose").onclick = () => {
+
+$("#imageModal")
+.classList.remove("show");
+
 };
 
-$("#imageModal").onclick=e=>{
-if(e.target===$("#imageModal")){
-$("#imageModal").classList.remove("show");
+
+$("#imageModal").onclick = event => {
+
+if(
+event.target === $("#imageModal")
+){
+
+$("#imageModal")
+.classList.remove("show");
+
 }
+
 };
 
 
-/* ================================
+/* =====================================================
    ADMIN CHECK
-================================ */
+===================================================== */
 
 async function checkAdmin(){
 
-const {data,error}=
+try{
+
+const userResult =
 await db.auth.getUser();
 
-if(error||!data.user){
 
-isAdmin=false;
+if(
+userResult.error ||
+!userResult.data.user
+){
+
+isAdmin = false;
+
 return false;
+
 }
 
-const result=
+
+const user =
+userResult.data.user;
+
+
+/*
+  Primary admin check:
+  Supabase RPC is_admin()
+*/
+
+const rpc =
 await db.rpc("is_admin");
 
+
 console.log(
-"Admin RPC:",
-result
+"Admin RPC result:",
+rpc
 );
 
-if(result.error){
 
-console.error(result.error);
+if(
+!rpc.error &&
+rpc.data === true
+){
 
-isAdmin=false;
+isAdmin = true;
+
+return true;
+
+}
+
+
+/*
+  Fallback:
+  Check metadata if configured.
+*/
+
+const metadata =
+user.app_metadata || {};
+
+if(
+metadata.role === "admin"
+){
+
+isAdmin = true;
+
+return true;
+
+}
+
+
+const userMetadata =
+user.user_metadata || {};
+
+if(
+userMetadata.role === "admin"
+){
+
+isAdmin = true;
+
+return true;
+
+}
+
+
+isAdmin = false;
 
 return false;
+
+}catch(error){
+
+console.error(
+"Admin check:",
+error
+);
+
+isAdmin = false;
+
+return false;
+
 }
 
-isAdmin=result.data===true;
-
-return isAdmin;
 }
 
 
-/* ================================
+/* =====================================================
    ADMIN DATA
-================================ */
+===================================================== */
 
 async function loadAdminData(){
 
-if(!isAdmin)return;
+if(!isAdmin){
+return;
+}
 
-const result=
-await db.from("contact_messages")
+
+const result =
+await db
+.from("contact_messages")
 .select("*")
 .order("created_at",{ascending:false});
 
+
 if(result.error){
 
-console.error(result.error);
+console.error(
+"Messages:",
+result.error
+);
 
-messages=[];
+messages = [];
 
 }else{
 
-messages=result.data||[];
+messages =
+result.data || [];
 
 }
+
 
 renderAdmin();
+
 }
 
 
-/* ================================
+/* =====================================================
    ADMIN RENDER
-================================ */
+===================================================== */
 
 function renderAdmin(){
 
-$("#statProjects").textContent=
+$("#statProjects").textContent =
 projects.length;
 
-$("#statPosts").textContent=
+$("#statPosts").textContent =
 posts.length;
 
-$("#statGallery").textContent=
+$("#statGallery").textContent =
 gallery.length;
 
-$("#statMessages").textContent=
+$("#statMessages").textContent =
 messages.length;
+
 
 renderAdminProjects();
 renderAdminPosts();
 renderAdminGallery();
 renderAdminMessages();
+
 }
 
 
-/* ================================
-   ADMIN PROJECTS
-================================ */
+/* =====================================================
+   ADMIN PROJECT LIST
+===================================================== */
 
 function renderAdminProjects(){
 
-const list=$("#adminProjectsList");
+const list =
+$("#adminProjectsList");
+
 
 if(!projects.length){
 
-list.innerHTML=
-`<div class="empty">No projects.</div>`;
+list.innerHTML = `
+<div class="empty">
+No projects.
+</div>
+`;
 
 return;
+
 }
 
-list.innerHTML=
-projects.map(p=>`
+
+list.innerHTML =
+projects.map(project => `
 
 <div class="admin-item">
 
 <div>
 
 <strong>
-${escapeHTML(p.title)}
+${escapeHTML(project.title)}
 </strong>
 
 <p>
-${escapeHTML(p.description||"")}
+${escapeHTML(
+project.description || ""
+)}
 </p>
 
+${
+project.technologies
+?
+`
+<small>
+${escapeHTML(project.technologies)}
+</small>
+`
+:
+""
+}
+
 </div>
+
 
 <div class="admin-actions">
 
 <button
 class="btn secondary small"
-onclick="editProject(${p.id})">
+type="button"
+onclick="editProject(${project.id})">
+
 Edit
+
 </button>
+
 
 <button
 class="btn danger small"
-onclick="deleteProject(${p.id})">
+type="button"
+onclick="deleteProject(${project.id})">
+
 Delete
+
 </button>
 
 </div>
@@ -1785,45 +2571,64 @@ Delete
 </div>
 
 `).join("");
+
 }
 
-$("#projectForm").onsubmit=
-async e=>{
 
-e.preventDefault();
+/* =====================================================
+   ADD / EDIT PROJECT
+===================================================== */
+
+$("#projectForm").onsubmit =
+async event => {
+
+event.preventDefault();
+
 
 if(!isAdmin){
 
-toast("Admin access required.");
+toast(
+"Admin access required."
+);
 
 return;
+
 }
 
-const id=$("#projectId").value;
 
-const payload={
+const id =
+$("#projectId").value;
 
-title:$("#projectTitle").value.trim(),
+
+const payload = {
+
+title:
+$("#projectTitle").value.trim(),
 
 description:
 $("#projectDescription").value.trim(),
 
-image:
+image_url:
 $("#projectImage").value.trim(),
 
-link:
+project_url:
 $("#projectLink").value.trim(),
 
-category:
-$("#projectCategory").value.trim()
+github_url:
+$("#projectGithub").value.trim(),
+
+technologies:
+$("#projectTechnologies").value.trim()
 
 };
 
+
 let result;
+
 
 if(id){
 
-result=
+result =
 await db
 .from("projects")
 .update(payload)
@@ -1831,143 +2636,228 @@ await db
 
 }else{
 
-result=
+result =
 await db
 .from("projects")
 .insert(payload);
 
 }
 
+
 if(result.error){
 
-toast(result.error.message);
-
-return;
-}
+console.error(result.error);
 
 toast(
-id?
-"Project updated successfully."
-:
-"Project added successfully."
+result.error.message
 );
 
+return;
+
+}
+
+
+toast(
+id
+?
+"Project updated successfully! ✅"
+:
+"Project added successfully! ✅"
+);
+
+
 resetProject();
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 };
+
+
+/* =====================================================
+   EDIT PROJECT
+===================================================== */
 
 function editProject(id){
 
-const p=
-projects.find(x=>String(x.id)===String(id));
+const project =
+projects.find(
+item =>
+String(item.id) === String(id)
+);
 
-if(!p)return;
-
-$("#projectId").value=p.id;
-
-$("#projectTitle").value=p.title||"";
-
-$("#projectDescription").value=
-p.description||"";
-
-$("#projectImage").value=
-p.image||"";
-
-$("#projectLink").value=
-p.link||"";
-
-$("#projectCategory").value=
-p.category||"";
-
-location.hash="admin";
+if(!project){
+return;
 }
+
+
+$("#projectId").value =
+project.id;
+
+$("#projectTitle").value =
+project.title || "";
+
+$("#projectDescription").value =
+project.description || "";
+
+$("#projectImage").value =
+project.image_url || "";
+
+$("#projectLink").value =
+project.project_url || "";
+
+$("#projectGithub").value =
+project.github_url || "";
+
+$("#projectTechnologies").value =
+project.technologies || "";
+
+
+location.hash =
+"admin";
+
+}
+
+
+/* =====================================================
+   RESET PROJECT
+===================================================== */
 
 function resetProject(){
 
 $("#projectForm").reset();
 
-$("#projectId").value="";
+$("#projectId").value = "";
+
 }
 
-$("#projectCancel").onclick=
+
+$("#projectCancel").onclick =
 resetProject;
+
+
+/* =====================================================
+   DELETE PROJECT
+===================================================== */
 
 async function deleteProject(id){
 
-if(!isAdmin)return;
+if(!isAdmin){
 
-if(!confirm("Delete this project?"))
+toast(
+"Admin access required."
+);
+
 return;
 
-const result=
+}
+
+
+if(
+!confirm(
+"Delete this project?"
+)
+){
+
+return;
+
+}
+
+
+const result =
 await db
 .from("projects")
 .delete()
 .eq("id",id);
 
+
 if(result.error){
 
-toast(result.error.message);
+toast(
+result.error.message
+);
 
 return;
+
 }
 
-toast("Project deleted.");
+
+toast(
+"Project deleted successfully."
+);
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 }
 
 
-/* ================================
-   BLOG ADMIN
-================================ */
+/* =====================================================
+   ADMIN BLOG LIST
+===================================================== */
 
 function renderAdminPosts(){
 
-const list=$("#adminPostsList");
+const list =
+$("#adminPostsList");
+
 
 if(!posts.length){
 
-list.innerHTML=
-`<div class="empty">No posts.</div>`;
+list.innerHTML = `
+<div class="empty">
+No posts.
+</div>
+`;
 
 return;
+
 }
 
-list.innerHTML=
-posts.map(p=>`
+
+list.innerHTML =
+posts.map(post => `
 
 <div class="admin-item">
 
 <div>
 
 <strong>
-${escapeHTML(p.title)}
+${escapeHTML(post.title)}
 </strong>
 
 <p>
-${escapeHTML(p.excerpt||"")}
+${escapeHTML(
+post.excerpt || ""
+)}
 </p>
 
 </div>
+
 
 <div class="admin-actions">
 
 <button
 class="btn secondary small"
-onclick="editPost(${p.id})">
+type="button"
+onclick="editPost(${post.id})">
+
 Edit
+
 </button>
+
 
 <button
 class="btn danger small"
-onclick="deletePost(${p.id})">
+type="button"
+onclick="deletePost(${post.id})">
+
 Delete
+
 </button>
 
 </div>
@@ -1975,23 +2865,36 @@ Delete
 </div>
 
 `).join("");
+
 }
 
-$("#postForm").onsubmit=
-async e=>{
 
-e.preventDefault();
+/* =====================================================
+   ADD / EDIT BLOG
+===================================================== */
+
+$("#postForm").onsubmit =
+async event => {
+
+event.preventDefault();
+
 
 if(!isAdmin){
 
-toast("Admin access required.");
+toast(
+"Admin access required."
+);
 
 return;
+
 }
 
-const id=$("#postId").value;
 
-const payload={
+const id =
+$("#postId").value;
+
+
+const payload = {
 
 title:
 $("#postTitle").value.trim(),
@@ -1999,7 +2902,7 @@ $("#postTitle").value.trim(),
 category:
 $("#postCategory").value.trim(),
 
-image:
+image_url:
 $("#postImage").value.trim(),
 
 excerpt:
@@ -2010,11 +2913,13 @@ $("#postContent").value.trim()
 
 };
 
+
 let result;
+
 
 if(id){
 
-result=
+result =
 await db
 .from("posts")
 .update(payload)
@@ -2022,131 +2927,211 @@ await db
 
 }else{
 
-result=
+result =
 await db
 .from("posts")
 .insert(payload);
 
 }
 
+
 if(result.error){
 
-toast(result.error.message);
-
-return;
-}
+console.error(result.error);
 
 toast(
-id?
-"Post updated."
-:
-"Post created."
+result.error.message
 );
 
+return;
+
+}
+
+
+toast(
+id
+?
+"Blog post updated! ✅"
+:
+"Blog post created! ✅"
+);
+
+
 resetPost();
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 };
+
+
+/* =====================================================
+   EDIT POST
+===================================================== */
 
 function editPost(id){
 
-const p=
-posts.find(x=>String(x.id)===String(id));
+const post =
+posts.find(
+item =>
+String(item.id) === String(id)
+);
 
-if(!p)return;
-
-$("#postId").value=p.id;
-
-$("#postTitle").value=p.title||"";
-
-$("#postCategory").value=
-p.category||"";
-
-$("#postImage").value=
-p.image||"";
-
-$("#postExcerpt").value=
-p.excerpt||"";
-
-$("#postContent").value=
-p.content||"";
+if(!post){
+return;
 }
+
+
+$("#postId").value =
+post.id;
+
+$("#postTitle").value =
+post.title || "";
+
+$("#postCategory").value =
+post.category || "";
+
+$("#postImage").value =
+post.image_url || "";
+
+$("#postExcerpt").value =
+post.excerpt || "";
+
+$("#postContent").value =
+post.content || "";
+
+
+location.hash =
+"admin";
+
+}
+
+
+/* =====================================================
+   RESET POST
+===================================================== */
 
 function resetPost(){
 
 $("#postForm").reset();
 
-$("#postId").value="";
+$("#postId").value = "";
+
 }
 
-$("#postCancel").onclick=
+
+$("#postCancel").onclick =
 resetPost;
+
+
+/* =====================================================
+   DELETE POST
+===================================================== */
 
 async function deletePost(id){
 
-if(!isAdmin)return;
+if(!isAdmin){
 
-if(!confirm("Delete this post?"))
+toast(
+"Admin access required."
+);
+
 return;
 
-const result=
+}
+
+
+if(
+!confirm(
+"Delete this blog post?"
+)
+){
+
+return;
+
+}
+
+
+const result =
 await db
 .from("posts")
 .delete()
 .eq("id",id);
 
+
 if(result.error){
 
-toast(result.error.message);
+toast(
+result.error.message
+);
 
 return;
+
 }
 
-toast("Post deleted.");
+
+toast(
+"Blog post deleted."
+);
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 }
 
 
-/* ================================
-   GALLERY ADMIN
-================================ */
+/* =====================================================
+   ADMIN GALLERY LIST
+===================================================== */
 
 function renderAdminGallery(){
 
-const list=$("#adminGalleryList");
+const list =
+$("#adminGalleryList");
+
 
 if(!gallery.length){
 
-list.innerHTML=
-`<div class="empty">No images.</div>`;
+list.innerHTML = `
+<div class="empty">
+No gallery images.
+</div>
+`;
 
 return;
+
 }
 
-list.innerHTML=
-gallery.map(g=>`
+
+list.innerHTML =
+gallery.map(item => `
 
 <div class="admin-item">
 
 <div>
 
 <strong>
-${escapeHTML(g.title||"Image")}
+${escapeHTML(
+item.title || "Image"
+)}
 </strong>
 
 </div>
+
 
 <div class="admin-actions">
 
 <button
 class="btn danger small"
-onclick="deleteGallery(${g.id})">
+type="button"
+onclick="deleteGallery(${item.id})">
+
 Delete
+
 </button>
 
 </div>
@@ -2154,42 +3139,120 @@ Delete
 </div>
 
 `).join("");
+
 }
 
-$("#galleryForm").onsubmit=
-async e=>{
 
-e.preventDefault();
+/* =====================================================
+   GALLERY UPLOAD
+===================================================== */
+
+$("#galleryForm").onsubmit =
+async event => {
+
+event.preventDefault();
+
 
 if(!isAdmin){
 
-toast("Admin access required.");
+toast(
+"Admin access required."
+);
 
 return;
+
 }
 
-const files=
-Array.from($("#galleryFiles").files);
 
-const title=
+const input =
+$("#galleryFiles");
+
+const files =
+Array.from(input.files || []);
+
+
+if(!files.length){
+
+toast(
+"Please select images."
+);
+
+return;
+
+}
+
+
+const title =
 $("#galleryTitle").value.trim();
 
-let count=0;
 
-for(const file of files){
+const status =
+$("#uploadStatus");
+
+
+status.classList.add("show");
+
+status.textContent =
+"Uploading images...";
+
+
+let uploaded = 0;
+
+let failed = 0;
+
+
+for(
+let index = 0;
+index < files.length;
+index++
+){
+
+const file =
+files[index];
+
 
 try{
 
-const extension=
-file.name.split(".").pop().toLowerCase();
+if(!file.type.startsWith("image/")){
 
-const filename=
-crypto.randomUUID()+"."+extension;
+failed++;
 
-const path=
-"gallery/"+filename;
+continue;
 
-const upload=
+}
+
+
+status.textContent =
+`Uploading ${index + 1} / ${files.length}...`;
+
+
+const extension =
+file.name
+.split(".")
+.pop()
+.toLowerCase();
+
+
+const filename =
+crypto.randomUUID()
++
+"."
++
+extension;
+
+
+const path =
+"gallery/"
++
+filename;
+
+
+/*
+  Upload to:
+  portfolio-images/gallery/filename
+*/
+
+const upload =
 await db.storage
 .from("portfolio-images")
 .upload(
@@ -2201,172 +3264,356 @@ upsert:false
 }
 );
 
+
 if(upload.error){
 
-console.error(upload.error);
+console.error(
+"Storage upload error:",
+upload.error
+);
+
+failed++;
 
 continue;
+
 }
 
-const publicUrl=
+
+/*
+  Get public URL
+*/
+
+const publicUrl =
 db.storage
 .from("portfolio-images")
 .getPublicUrl(path)
-.data.publicUrl;
+.data
+.publicUrl;
 
-const insert=
+
+/*
+  Save URL in gallery table
+*/
+
+const insert =
 await db
 .from("gallery")
 .insert({
 
 title:
-title||file.name,
+title || file.name,
 
 image_url:
 publicUrl
 
 });
 
-if(!insert.error){
-count++;
+
+if(insert.error){
+
+console.error(
+"Gallery insert error:",
+insert.error
+);
+
+failed++;
+
+continue;
+
 }
 
-}catch(err){
 
-console.error(err);
+uploaded++;
+
+
+}catch(error){
+
+console.error(error);
+
+failed++;
 
 }
 
 }
+
 
 $("#galleryForm").reset();
 
+
+status.textContent =
+`Finished: ${uploaded} uploaded, ${failed} failed.`;
+
+
 toast(
-count+" image(s) uploaded."
+`${uploaded} image(s) uploaded successfully! 🎉`
 );
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 };
+
+
+/* =====================================================
+   DELETE GALLERY
+===================================================== */
 
 async function deleteGallery(id){
 
-if(!isAdmin)return;
+if(!isAdmin){
 
-if(!confirm("Delete this image?"))
+toast(
+"Admin access required."
+);
+
 return;
 
-const result=
+}
+
+
+if(
+!confirm(
+"Delete this gallery image?"
+)
+){
+
+return;
+
+}
+
+
+const item =
+gallery.find(
+x =>
+String(x.id) === String(id)
+);
+
+
+const result =
 await db
 .from("gallery")
 .delete()
 .eq("id",id);
 
+
 if(result.error){
 
-toast(result.error.message);
+toast(
+result.error.message
+);
 
 return;
+
 }
 
-toast("Image deleted.");
+
+/*
+  Try to remove the Storage object too.
+  The database row is removed even if the
+  storage path cannot be determined.
+*/
+
+if(
+item &&
+item.image_url
+){
+
+try{
+
+const marker =
+"/storage/v1/object/public/portfolio-images/";
+
+const position =
+item.image_url.indexOf(marker);
+
+
+if(position !== -1){
+
+const storagePath =
+decodeURIComponent(
+item.image_url
+.substring(
+position + marker.length
+)
+);
+
+
+await db.storage
+.from("portfolio-images")
+.remove([
+storagePath
+]);
+
+}
+
+}catch(error){
+
+console.warn(
+"Storage delete:",
+error
+);
+
+}
+
+}
+
+
+toast(
+"Gallery image deleted."
+);
+
 
 await loadPublicData();
 
 await loadAdminData();
+
 }
 
 
-/* ================================
-   CONTACT
-================================ */
+/* =====================================================
+   CONTACT FORM
+===================================================== */
 
-$("#contactForm").onsubmit=
-async e=>{
+$("#contactForm").onsubmit =
+async event => {
 
-e.preventDefault();
+event.preventDefault();
 
-const name=
-$("#contactName").value.trim();
 
-const email=
-$("#contactEmail").value.trim();
+const name =
+$("#contactName")
+.value
+.trim();
 
-const message=
-$("#contactMessage").value.trim();
 
-const result=
+const email =
+$("#contactEmail")
+.value
+.trim();
+
+
+const message =
+$("#contactMessage")
+.value
+.trim();
+
+
+if(!name || !message){
+
+toast(
+"Please fill in your name and message."
+);
+
+return;
+
+}
+
+
+const result =
 await db
 .from("contact_messages")
 .insert({
+
 name,
 email,
 message
+
 });
+
 
 if(result.error){
 
-toast(result.error.message);
+console.error(result.error);
+
+toast(
+result.error.message
+);
 
 return;
+
 }
+
 
 $("#contactForm").reset();
 
-toast("Message sent successfully! 🎉");
+
+toast(
+"Message sent successfully! 🎉"
+);
+
 };
 
 
-/* ================================
+/* =====================================================
    ADMIN MESSAGES
-================================ */
+===================================================== */
 
 function renderAdminMessages(){
 
-const list=$("#adminMessagesList");
+const list =
+$("#adminMessagesList");
+
 
 if(!messages.length){
 
-list.innerHTML=
-`<div class="empty">No messages.</div>`;
+list.innerHTML = `
+<div class="empty">
+No messages yet.
+</div>
+`;
 
 return;
+
 }
 
-list.innerHTML=
-messages.map(m=>`
+
+list.innerHTML =
+messages.map(message => `
 
 <div class="admin-item">
 
 <div>
 
 <strong>
-${escapeHTML(m.name)}
+${escapeHTML(message.name)}
 </strong>
 
 <p>
-${escapeHTML(m.email||"No email")}
+📧 ${escapeHTML(
+message.email || "No email"
+)}
 </p>
 
-<p>
-${escapeHTML(m.message)}
+<p style="white-space:pre-wrap">
+${escapeHTML(message.message)}
 </p>
 
 <small>
-${m.created_at?
-new Date(m.created_at).toLocaleString():
-""}
+${
+message.created_at
+?
+new Date(
+message.created_at
+).toLocaleString()
+:
+""
+}
 </small>
 
 </div>
+
 
 <div class="admin-actions">
 
 <button
 class="btn danger small"
-onclick="deleteMessage(${m.id})">
+type="button"
+onclick="deleteMessage(${message.id})">
+
 Delete
+
 </button>
 
 </div>
@@ -2374,77 +3621,153 @@ Delete
 </div>
 
 `).join("");
+
 }
+
+
+/* =====================================================
+   DELETE MESSAGE
+===================================================== */
 
 async function deleteMessage(id){
 
-if(!isAdmin)return;
+if(!isAdmin){
 
-if(!confirm("Delete this message?"))
+toast(
+"Admin access required."
+);
+
 return;
 
-const result=
+}
+
+
+if(
+!confirm(
+"Delete this message?"
+)
+){
+
+return;
+
+}
+
+
+const result =
 await db
 .from("contact_messages")
 .delete()
 .eq("id",id);
 
+
 if(result.error){
 
-toast(result.error.message);
+toast(
+result.error.message
+);
 
 return;
+
 }
 
-toast("Message deleted.");
+
+toast(
+"Message deleted."
+);
+
 
 await loadAdminData();
+
 }
 
 
-/* ================================
+/* =====================================================
    LOGIN
-================================ */
+===================================================== */
 
-$("#loginForm").onsubmit=
-async e=>{
+$("#loginForm").onsubmit =
+async event => {
 
-e.preventDefault();
+event.preventDefault();
 
-const email=
-$("#loginEmail").value.trim();
 
-const password=
-$("#loginPassword").value;
+const email =
+$("#loginEmail")
+.value
+.trim();
 
-const result=
-await db.auth.signInWithPassword({
+
+const password =
+$("#loginPassword")
+.value;
+
+
+if(!email || !password){
+
+toast(
+"Enter email and password."
+);
+
+return;
+
+}
+
+
+toast(
+"Logging in..."
+);
+
+
+const result =
+await db.auth
+.signInWithPassword({
 
 email,
 password
 
 });
 
+
 if(result.error){
 
-toast(result.error.message);
+console.error(
+"Login:",
+result.error
+);
+
+toast(
+result.error.message
+);
 
 return;
+
 }
 
-const admin=
+
+/*
+  Check administrator
+*/
+
+const admin =
 await checkAdmin();
+
 
 if(!admin){
 
 await db.auth.signOut();
 
 toast(
-"This account is not an admin."
+"Login succeeded, but this account is not an admin."
 );
 
 return;
+
 }
+
+
+/*
+  Show dashboard
+*/
 
 $("#loginBox")
 .classList.add("hidden");
@@ -2452,205 +3775,419 @@ $("#loginBox")
 $("#dashboard")
 .classList.remove("hidden");
 
+
 await loadAdminData();
+
 
 toast(
 "Admin login successful! 🎉"
 );
+
 };
 
 
-/* ================================
+/* =====================================================
    LOGOUT
-================================ */
+===================================================== */
 
-$("#logoutBtn").onclick=
-async()=>{
+$("#logoutBtn").onclick =
+async () => {
 
 await db.auth.signOut();
 
-isAdmin=false;
+isAdmin = false;
+
 
 $("#dashboard")
 .classList.add("hidden");
 
+
 $("#loginBox")
 .classList.remove("hidden");
 
-toast("Logged out.");
+
+toast(
+"Logged out successfully."
+);
+
 };
 
 
-/* ================================
+/* =====================================================
    ADMIN TABS
-================================ */
+===================================================== */
 
 document
 .querySelectorAll(".tab[data-tab]")
-.forEach(btn=>{
+.forEach(button => {
 
-btn.onclick=()=>{
+button.onclick = () => {
+
 
 document
-.querySelectorAll(".tab[data-tab]")
-.forEach(x=>
-x.classList.remove("active")
+.querySelectorAll(
+".tab[data-tab]"
+)
+.forEach(item => {
+
+item.classList.remove(
+"active"
 );
+
+});
+
 
 document
 .querySelectorAll(".panel")
-.forEach(x=>
-x.classList.remove("active")
+.forEach(panel => {
+
+panel.classList.remove(
+"active"
 );
 
-btn.classList.add("active");
+});
 
-$("#"+btn.dataset.tab)
-.classList.add("active");
+
+button.classList.add("active");
+
+
+const panel =
+$("#" + button.dataset.tab);
+
+
+if(panel){
+
+panel.classList.add("active");
+
+}
 
 };
 
 });
 
 
-/* ================================
+/* =====================================================
    GITHUB
-================================ */
+===================================================== */
 
 async function loadGithub(username){
 
 if(!username){
 
-$("#githubRepos").innerHTML=
-`<div class="empty">
+$("#githubRepos").innerHTML = `
+<div class="empty">
 Enter GitHub username.
-</div>`;
+</div>
+`;
 
 return;
+
 }
 
-$("#githubRepos").innerHTML=
-`<div class="empty">
+
+$("#githubRepos").innerHTML = `
+<div class="empty">
 Loading repositories...
-</div>`;
+</div>
+`;
+
 
 try{
 
-const response=
+const response =
 await fetch(
 "https://api.github.com/users/"
-+encodeURIComponent(username)
-+"/repos?sort=updated&per_page=9"
++
+encodeURIComponent(username)
++
+"/repos?sort=updated&per_page=9"
 );
 
-if(!response.ok)
-throw new Error("GitHub user not found.");
 
-const repos=await response.json();
+if(!response.ok){
+
+throw new Error(
+"GitHub user not found."
+);
+
+}
+
+
+const repos =
+await response.json();
+
 
 if(!repos.length){
 
-$("#githubRepos").innerHTML=
-`<div class="empty">
+$("#githubRepos").innerHTML = `
+<div class="empty">
 No repositories found.
-</div>`;
+</div>
+`;
 
 return;
+
 }
 
-$("#githubRepos").innerHTML=
-repos.map(r=>`
+
+$("#githubRepos").innerHTML =
+repos.map(repo => `
 
 <article class="card">
 
 <h3>
-${escapeHTML(r.name)}
+${escapeHTML(repo.name)}
 </h3>
 
 <p>
 ${escapeHTML(
-r.description||
+repo.description ||
 "No description."
 )}
 </p>
 
 <p>
-⭐ ${r.stargazers_count}
-&nbsp;
-🍴 ${r.forks_count}
+⭐ ${repo.stargazers_count}
+&nbsp;&nbsp;
+🍴 ${repo.forks_count}
 </p>
 
+${
+repo.language
+?
+`
+<p>
+💻 ${escapeHTML(repo.language)}
+</p>
+`
+:
+""
+}
+
 <a
-href="${escapeHTML(r.html_url)}"
+href="${escapeHTML(repo.html_url)}"
 target="_blank"
 rel="noopener"
 class="btn primary small">
+
 View on GitHub
+
 </a>
 
 </article>
 
 `).join("");
 
-}catch(err){
 
-$("#githubRepos").innerHTML=
-`<div class="empty">
-${escapeHTML(err.message)}
-</div>`;
+}catch(error){
+
+console.error(error);
+
+
+$("#githubRepos").innerHTML = `
+<div class="empty">
+${escapeHTML(error.message)}
+</div>
+`;
+
 }
+
 }
 
-$("#githubBtn").onclick=()=>{
 
-const username=
-$("#githubUsername").value.trim();
+/* =====================================================
+   GITHUB BUTTON
+===================================================== */
+
+$("#githubBtn").onclick = () => {
+
+const username =
+$("#githubUsername")
+.value
+.trim();
+
 
 if(!username){
 
-toast("Enter GitHub username.");
+toast(
+"Enter GitHub username."
+);
 
 return;
+
 }
+
 
 localStorage.setItem(
 "githubUsername",
 username
 );
 
+
 loadGithub(username);
+
 };
 
 
-/* ================================
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+const translations = {
+
+en: {
+
+home:"Home",
+about:"About",
+skills:"Skills",
+projects:"Projects",
+blog:"Blog",
+gallery:"Gallery",
+contact:"Contact"
+
+},
+
+om: {
+
+home:"Mana",
+about:"Waa'ee Keenya",
+skills:"Dandeettii",
+projects:"Pirojektoota",
+blog:"Barruu",
+gallery:"Suuraa",
+contact:"Nu Qunnamaa"
+
+},
+
+am: {
+
+home:"መነሻ",
+about:"ስለ እኔ",
+skills:"ክህሎቶች",
+projects:"ፕሮጀክቶች",
+blog:"ብሎግ",
+gallery:"ጋለሪ",
+contact:"ያግኙን"
+
+}
+
+};
+
+
+function changeLanguage(language){
+
+const data =
+translations[language] ||
+translations.en;
+
+
+document
+.querySelectorAll("[data-i18n]")
+.forEach(element => {
+
+const key =
+element.dataset.i18n;
+
+
+if(data[key]){
+
+element.textContent =
+data[key];
+
+}
+
+});
+
+
+localStorage.setItem(
+"language",
+language
+);
+
+}
+
+
+$("#lang").onchange =
+event => {
+
+changeLanguage(
+event.target.value
+);
+
+};
+
+
+const savedLanguage =
+localStorage.getItem(
+"language"
+) || "en";
+
+
+$("#lang").value =
+savedLanguage;
+
+
+changeLanguage(
+savedLanguage
+);
+
+
+/* =====================================================
    INIT
-================================ */
+===================================================== */
 
 async function init(){
 
-$("#year").textContent=
+/*
+  Current year
+*/
+
+$("#year").textContent =
 new Date().getFullYear();
 
-const savedGithub=
+
+/*
+  Saved GitHub username
+*/
+
+const savedGithub =
 localStorage.getItem(
 "githubUsername"
-)||"";
+) || "";
 
-$("#githubUsername").value=
+
+$("#githubUsername").value =
 savedGithub;
+
 
 await loadPublicData();
 
-if(savedGithub)
+
+if(savedGithub){
+
 loadGithub(savedGithub);
 
-const session=
+}
+
+
+/*
+  Check existing login
+*/
+
+try{
+
+const sessionResult =
 await db.auth.getSession();
 
-if(session.data.session){
 
-const admin=
+if(
+sessionResult.data &&
+sessionResult.data.session
+){
+
+const admin =
 await checkAdmin();
+
 
 if(admin){
 
@@ -2666,29 +4203,78 @@ await loadAdminData();
 
 }
 
+}catch(error){
+
+console.error(
+"Session:",
+error
+);
+
 }
+
+}
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+db.auth.onAuthStateChange(
+async (event, session) => {
+
+if(
+event === "SIGNED_OUT"
+){
+
+isAdmin = false;
+
+$("#dashboard")
+.classList.add("hidden");
+
+$("#loginBox")
+.classList.remove("hidden");
+
+}
+
+});
+
+
+/* =====================================================
+   START APP
+===================================================== */
 
 init();
 
 
-/* ================================
+/* =====================================================
    SERVICE WORKER
-================================ */
+===================================================== */
 
-if("serviceWorker" in navigator){
+if(
+"serviceWorker" in navigator
+){
 
 window.addEventListener(
 "load",
-()=>{
+() => {
 
 navigator.serviceWorker
 .register("./sw.js")
-.catch(err=>
+.then(() => {
+
+console.log(
+"Service Worker registered."
+);
+
+})
+.catch(error => {
+
 console.warn(
 "Service Worker:",
-err
-)
+error
 );
+
+});
 
 });
 
