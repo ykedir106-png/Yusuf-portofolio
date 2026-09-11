@@ -1,11 +1,14 @@
-const CACHE_NAME = "yusuf-portfolio-v2";
+const CACHE_NAME = "yusuf-portfolio-v3";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
+  "./style.css",
+  "./app.js",
+  "./supabase.js",
   "./manifest.json",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 // INSTALL
@@ -37,39 +40,39 @@ self.addEventListener("fetch", event => {
 
   const url = new URL(event.request.url);
 
-  // External files/API — don't cache
+  // External requests such as Supabase and GitHub
+  // are not cached.
   if (url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
+    caches.match(event.request).then(cachedResponse => {
 
-      if (cached) {
-        return cached;
+      if (cachedResponse) {
+        return cachedResponse;
       }
 
-      return fetch(event.request).then(response => {
+      return fetch(event.request)
+        .then(response => {
 
-        if (
-          response &&
-          response.status === 200 &&
-          response.type === "basic"
-        ) {
-          const copy = response.clone();
+          if (
+            response &&
+            response.status === 200 &&
+            response.type === "basic"
+          ) {
+            const copy = response.clone();
 
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, copy);
-          });
-        }
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                cache.put(event.request, copy);
+              });
+          }
 
-        return response;
-
-      }).catch(() => {
-
-        return caches.match("./index.html");
-
-      });
+          return response;
+        })
+        .catch(() => {
+          return caches.match("./index.html");
+        });
 
     })
   );
-
 });
